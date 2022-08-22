@@ -28,7 +28,7 @@ type GameState = {
 export default function GameTracker({ color, image }: GameTrackerScreenProps) {
   const [gameState, setGameState] = useState<GameState>({
     name: {
-      value: "",
+      value: "...",
       isEditing: false,
     },
     level: 1,
@@ -39,19 +39,21 @@ export default function GameTracker({ color, image }: GameTrackerScreenProps) {
   function valueEditTsx(position: string) {
     return (
       <View style={styles.valueEditContainer}>
-        <Text style={styles.text}>{position.toLocaleUpperCase()}</Text>
+        <Text style={[styles.text, {textDecorationLine: "underline"}]}>{position}</Text>
         <View style={styles.valueEditSubContainer}>
           <TouchableOpacity
             style={styles.button}
-            onPress={() =>
-              setGameState({
-                ...gameState,
-                [position]:
-                  (gameState[position as keyof GameState] as number) + 1,
-              })
+            onPress={() =>{
+              const min = position === "level" ? 1 : 0;
+              let value = (gameState[position as keyof GameState] as number) - 1;
+              if (value < min) {
+                value = min;
+              }
+              setGameState({ ...gameState, [position as keyof GameState]: value });
+              }
             }
           >
-            <FontAwesome name="minus" size={20} color={"white"} />
+            <FontAwesome name="minus" size={20} />
           </TouchableOpacity>
           <Text style={styles.value}>
             {gameState[position as keyof GameState]}
@@ -62,11 +64,11 @@ export default function GameTracker({ color, image }: GameTrackerScreenProps) {
               setGameState({
                 ...gameState,
                 [position]:
-                  (gameState[position as keyof GameState] as number) - 1,
+                  (gameState[position as keyof GameState] as number) + 1,
               })
             }
           >
-            <FontAwesome name="plus" size={20} color={"white"} />
+            <FontAwesome name="plus" size={20} />
           </TouchableOpacity>
         </View>
       </View>
@@ -76,16 +78,21 @@ export default function GameTracker({ color, image }: GameTrackerScreenProps) {
   function nameEditTsx() {
     return (
       <View style={styles.nameEditContainer}>
-        <Text style={styles.text}>NAME</Text>
+        <Text style={[styles.text, {textDecorationLine: "underline"}]}>name</Text>
         {gameState.name.isEditing ? (
           <TextInput
-            style={styles.nameInput}
+            style={[styles.nameInput, {width: "60%"}]}
             autoFocus={true}
             onChangeText={(text) =>
               setGameState({
                 ...gameState,
                 name: { value: text, isEditing: true },
-              })
+              })}
+              onBlur={() =>
+                setGameState({
+                  ...gameState,
+                  name: { value: gameState.name.value, isEditing: false },
+                })
             }
             value={gameState.name.value}
           />
@@ -99,7 +106,7 @@ export default function GameTracker({ color, image }: GameTrackerScreenProps) {
               })
             }
           >
-            <Text style={styles.name}>{gameState.name.value}</Text>
+            <Text style={[styles.text,  {width: "100%", fontWeight: "normal"}]}>{gameState.name.value}</Text>
           </TouchableOpacity>
         )}
       </View>
@@ -117,7 +124,7 @@ export default function GameTracker({ color, image }: GameTrackerScreenProps) {
               gender: "male"
             })}
           >
-            <FontAwesome name="male" size={30} color={"white"} style={{opacity: gameState.gender === "male"? 1 : 0.5}}/>
+            <FontAwesome name="male" size={30} style={{opacity: gameState.gender === "male"? 1 : 0.5}}/>
           </TouchableOpacity>
           <TouchableOpacity
           onPress={() =>
@@ -126,7 +133,7 @@ export default function GameTracker({ color, image }: GameTrackerScreenProps) {
               gender: "female"
             })}
           >
-            <FontAwesome name="female" size={30} color={"white"} style={{opacity: gameState.gender === "female"? 1 : 0.5}}/>  
+            <FontAwesome name="female" size={30} style={{opacity: gameState.gender === "female"? 1 : 0.5}}/>  
           </TouchableOpacity>
 
       </View>
@@ -154,12 +161,13 @@ const styles = StyleSheet.create({
   },
   valueEditSubContainer: {
     flexDirection: "row",
-    paddingHorizontal: 10,
+    paddingHorizontal: 15,
     width: "70%",
   },
   button: {
     alignItems: "center",
     justifyContent: "center",
+    paddingHorizontal: 10,
   },
   value: {
     flex: 1,
@@ -167,19 +175,15 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     fontSize: 20,
     textAlign: "center",
-    color: "white",
   },
   subContainer: {
     alignItems: "center",
     justifyContent: "center",
     width: "100%",
     flex: 1,
-    borderColor: "white",
-    borderWidth: 1,
   },
   title: {
     fontSize: 20,
-    color: "white",
     textAlign: "center",
   },
   image: {
@@ -198,24 +202,22 @@ const styles = StyleSheet.create({
   nameInput: {
     fontSize: 20,
     textAlign: "center",
-    color: "white",
+    fontFamily: "Quasimodo",
   },
   nameTouchable: {
-    width: "100%",
-    flex: 1,
+    width: "60%",
   },
   name: {
     alignItems: "center",
     justifyContent: "center",
     fontSize: 20,
     textAlign: "center",
-    color: "white",
   },
   text: {
-    fontSize: 16,
-    color: "white",
-    fontWeight: "bold",
+    fontSize: 20,
     textAlign: "center",
+    width: "30%",
+    fontFamily: "Quasimodo",
   },
   imageSubContainer: {
     flexDirection: "row",

@@ -9,16 +9,16 @@ export default function GameScreen({ navigation }: RootTabScreenProps<"Game">) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.subContainer}>
-        <GameTracker color={"blue"} image={require("../assets/images/munchkin1.png")} />
-        <GameTracker color={"red"} image={require("../assets/images/munchkin2.png")} />
+        <GameTracker color={"#fad096"} image={require("../assets/images/munchkin1.png")} />
+        <GameTracker color={"#d3aa72"} image={require("../assets/images/munchkin2.png")} />
       </View>
       <View style={styles.subContainer}>
-        <GameTracker color={"red"} image={require("../assets/images/munchkin3.png")} />
-        <GameTracker color={"blue"} image={require("../assets/images/munchkin4.png")} />
+        <GameTracker color={"#d3aa72"} image={require("../assets/images/munchkin3.png")} />
+        <GameTracker color={"#fad096"} image={require("../assets/images/munchkin4.png")} />
       </View>
       <View style={styles.subContainer}>
-        <GameTracker color={"blue"} image={require("../assets/images/munchkin5.png")} />
-        <GameTracker color={"red"} image={require("../assets/images/munchkin6.png")} />
+        <GameTracker color={"#fad096"} image={require("../assets/images/munchkin5.png")} />
+        <GameTracker color={"#d3aa72"} image={require("../assets/images/munchkin6.png")} />
       </View>
     </SafeAreaView>
   );
