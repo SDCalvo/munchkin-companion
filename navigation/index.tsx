@@ -27,6 +27,9 @@ import {
 } from "../types";
 import LinkingConfiguration from "./LinkingConfiguration";
 import RulesScreen from "../screens/RulesScreen";
+import DiceScreen from "../screens/DiceScreen";
+import DisclaimerScreen from "../screens/DisclaimerScreen";
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 export default function Navigation({
   colorScheme,
@@ -118,6 +121,19 @@ function BottomTabNavigator() {
         })}
       />
       <BottomTab.Screen
+        name="Dice"
+        component={DiceScreen}
+        options={{
+          title: "Dice",
+          tabBarIcon: ({ color, focused }) => (
+            <Image
+              style={{ borderColor: "white", width: 30, height: 30, opacity: focused ? 1 : 0.5 }}
+              source={require("../assets/images/dice-icon.png")}
+            />
+          ),
+        }}
+      />
+      <BottomTab.Screen
         name="Rules"
         component={RulesScreen}
         options={{
@@ -131,6 +147,14 @@ function BottomTabNavigator() {
         options={{
           title: "FAQ",
           tabBarIcon: ({ color }) => <TabBarIcon name="question-circle" color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="Disclaimer"
+        component={DisclaimerScreen}
+        options={{
+          title: "Disclaimer",
+          tabBarIcon: ({ color }) => <TabBarIcon name="warning" color={color} />,
         }}
       />
     </BottomTab.Navigator>

@@ -28,6 +28,8 @@ export type RootTabParamList = {
   Game: undefined;
   Rules: undefined;
   FAQ: undefined;
+  Dice: undefined;
+  Disclaimer: undefined;
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> = CompositeScreenProps<

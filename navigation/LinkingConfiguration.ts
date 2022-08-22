@@ -27,7 +27,17 @@ const linking: LinkingOptions<RootStackParamList> = {
           },
           FAQ: {
             screens: {
-              FAQScreen: 'two',
+              FAQScreen: 'three',
+            },
+          },
+          Dice: {
+            screens: {
+              DiceScreen: 'four',
+            },
+          },
+          Disclaimer: {
+            screens: {
+              DisclaimerScreen: 'five',
             },
           },
         },
