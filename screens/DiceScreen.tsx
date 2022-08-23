@@ -1,48 +1,59 @@
-import { StyleSheet, Image } from 'react-native';
-import { Text, View } from '../components/Themed';
-import CustomSafeAreaView, {currentHeight} from '../components/CustomSafeAreaView';
-import { useState } from 'react';
+import {
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  ImageBackground,
+} from "react-native";
+import { Text, View } from "../components/Themed";
+import CustomSafeAreaView, {
+  currentHeight,
+} from "../components/CustomSafeAreaView";
+import { useState } from "react";
 
 //@ts-ignore
-import Dice1 from '../assets/images/dice1.png';
+import Dice1 from "../assets/images/dice1.png";
 //@ts-ignore
-import Dice2 from '../assets/images/dice2.png';
+import Dice2 from "../assets/images/dice2.png";
 //@ts-ignore
-import Dice3 from '../assets/images/dice3.png';
+import Dice3 from "../assets/images/dice3.png";
 //@ts-ignore
-import Dice4 from '../assets/images/dice4.png';
+import Dice4 from "../assets/images/dice4.png";
 //@ts-ignore
-import Dice5 from '../assets/images/dice5.png';
+import Dice5 from "../assets/images/dice5.png";
 //@ts-ignore
-import Dice6 from '../assets/images/dice6.png';
+import Dice6 from "../assets/images/dice6.png";
+//@ts-ignore
+import bigImage from "../assets/images/big-image.png";
+
+const imageArray = [Dice1, Dice2, Dice3, Dice4, Dice5, Dice6];
 
 export default function DiceScreen() {
-  const [uri,setUri] = useState(Dice1);
+  const [uri, setUri] = useState(Dice1);
+  const [title, setTitle] = useState("will you escape?");
 
-  const buttonTapped = ()=>{
-    let randomNumber = Math.floor(Math.random() * 6) + 1
-
-    switch(randomNumber){
-      case 1: setUri(Dice1);
-        break;
-      case 2: setUri(Dice2);
-        break;
-      case 3: setUri(Dice3);
-        break;
-      case 4: setUri(Dice4);
-        break;
-      case 5: setUri(Dice5);
-        break;
-      case 6: setUri(Dice6);
-       break;
-      default: setUri(Dice1);
+  const buttonTapped = () => {
+    const randomNumber = Math.floor(Math.random() * 6) + 1;
+    setUri(imageArray[randomNumber - 1]);
+    if (randomNumber === 5 || randomNumber === 6) {
+      setTitle("you have escaped!");
+    } else {
+      setTitle("you got caught!");
     }
-  }
+  };
 
   return (
     <CustomSafeAreaView backgroundColor={"#fad096"}>
       <View style={styles.container}>
-        <Image source={uri} style={styles.image}/>
+        <ImageBackground
+          source={bigImage}
+          style={styles.bigImage}
+          resizeMode="cover"
+        >
+          <Text style={styles.title}>{title}</Text>
+          <TouchableOpacity style={styles.touchable} onPress={buttonTapped}>
+            <Image source={uri} style={styles.image} />
+          </TouchableOpacity>
+        </ImageBackground>
       </View>
     </CustomSafeAreaView>
   );
@@ -51,16 +62,32 @@ export default function DiceScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    backgroundColor: '#fad096',
+    alignItems: "center",
+    backgroundColor: "#fad096",
   },
   title: {
-    fontSize: 20,
-    fontWeight: 'bold',
+    fontSize: 60,
+    fontFamily: "Quasimodo",
+    textAlign: "center",
+    marginTop: -(currentHeight as number),
+    color: "white",
+    textShadowColor: 'rgba(0, 0, 0, 1)',
+    textShadowOffset: {width: -1, height: 1},
+    textShadowRadius: 10,
   },
   image: {
     width: 250,
     height: 250,
+    marginVertical: 130,
+  },
+  bigImage: {
+    flex: 1,
+    justifyContent: "flex-start",
+    width: "100%",
+  },
+  touchable: {
+    alignItems: "center",
+    justifyContent: "flex-start",
+    width: "100%",
   },
 });

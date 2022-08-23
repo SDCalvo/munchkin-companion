@@ -234,6 +234,10 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     textAlign: "center",
+    textShadowColor: 'rgba(1, 1, 1, 1)',
+    textShadowOffset: {width: -1, height: 1},
+    textShadowRadius: 5,
+    color: "white",
   },
   image: {
     height: 70,
@@ -252,6 +256,10 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: "center",
     fontFamily: "Quasimodo",
+    textShadowColor: 'rgba(1, 1, 1, 1)',
+    textShadowOffset: {width: -1, height: 1},
+    textShadowRadius: 5,
+    color: "white",
   },
   nameTouchable: {
     width: "60%",
@@ -267,6 +275,10 @@ const styles = StyleSheet.create({
     textAlign: "center",
     width: "30%",
     fontFamily: "Quasimodo",
+    textShadowColor: 'rgba(1, 1, 1, 1)',
+    textShadowOffset: {width: -1, height: 1},
+    textShadowRadius: 5,
+    color: "white",
   },
   imageSubContainer: {
     flexDirection: "row",
