@@ -23,7 +23,16 @@ type GameState = {
   mod: number;
   gender: string;
   total: number;
+  color: string;
 };
+
+const colorsArray = [
+  '#fff600',
+  '#ffc302',
+  '#ff8f00',
+  '#ff5b00',
+  '#ff0505',
+];
 
 export default function GameTracker({ color, image }: GameTrackerScreenProps) {
   const [gameState, setGameState] = useState<GameState>({
@@ -35,21 +44,24 @@ export default function GameTracker({ color, image }: GameTrackerScreenProps) {
     mod: 0,
     gender: "male",
     total: 1,
+    color: colorsArray[0],
   });
 
   useEffect(() => {
     const total = gameState.level + gameState.mod;
-
+    const colorIndex = Math.max((Math.floor(gameState.level / 2) - 1), 0);
+    const color = colorsArray[colorIndex];
     setGameState({
       ...gameState,
       total,
+      color,
     });
   }, [gameState.level, gameState.mod]);
 
   function valueEditTsx(position: string) {
     return (
       <View style={styles.valueEditContainer}>
-        <Text style={[styles.text, { textDecorationLine: "underline" }]}>
+        <Text style={[styles.text, { textDecorationLine: "underline", textAlign:"left" }]}>
           {position}
         </Text>
         <View style={styles.valueEditSubContainer}>
@@ -70,18 +82,19 @@ export default function GameTracker({ color, image }: GameTrackerScreenProps) {
           >
             <FontAwesome name="minus" size={20} />
           </TouchableOpacity>
-          <Text style={styles.value}>
+          <Text style={[styles.value, {color: position === "level" ? gameState.color : 'white'}]}>
             {gameState[position as keyof GameState]}
           </Text>
           <TouchableOpacity
             style={styles.button}
-            onPress={() =>
+            onPress={() =>{
+              const value = (gameState[position as keyof GameState] as number) + 1;
               setGameState({
                 ...gameState,
                 [position]:
-                  (gameState[position as keyof GameState] as number) + 1,
+                  position === "mod" ? value : Math.min(value, 10),
               })
-            }
+            }}
           >
             <FontAwesome name="plus" size={20} />
           </TouchableOpacity>
@@ -179,7 +192,7 @@ export default function GameTracker({ color, image }: GameTrackerScreenProps) {
       <View style={styles.subContainer}>{valueEditTsx("mod")}</View>
       <View style={styles.subContainer}>
         <View style={styles.totalContainer}>
-          <Text style={[styles.text, { textDecorationLine: "underline" }]}>
+          <Text style={[styles.text, { textDecorationLine: "underline", textAlign:"left" }]}>
             total
           </Text>
           <Text
@@ -206,12 +219,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-around",
     width: "100%",
-    paddingHorizontal: 10,
+    paddingLeft: 10,
   },
   valueEditSubContainer: {
     flexDirection: "row",
-    paddingHorizontal: 15,
-    width: "70%",
+    flex: 1,
   },
   button: {
     alignItems: "center",
@@ -224,6 +236,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     fontSize: 20,
     textAlign: "center",
+    backgroundColor: "black",
+    borderRadius: 50,
+    padding: 5,
+    fontFamily: 'Quasimodo',
   },
   subContainer: {
     alignItems: "center",
@@ -293,6 +309,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-around",
     width: "100%",
+    paddingLeft: 5,
   },
   textTotal: {
     fontSize: 20,

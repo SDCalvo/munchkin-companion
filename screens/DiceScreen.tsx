@@ -30,14 +30,17 @@ const imageArray = [Dice1, Dice2, Dice3, Dice4, Dice5, Dice6];
 export default function DiceScreen() {
   const [uri, setUri] = useState(Dice1);
   const [title, setTitle] = useState("will you escape?");
+  const [color , setColor] = useState("#fff");
 
   const buttonTapped = () => {
     const randomNumber = Math.floor(Math.random() * 6) + 1;
     setUri(imageArray[randomNumber - 1]);
     if (randomNumber === 5 || randomNumber === 6) {
       setTitle("you have escaped!");
+      setColor("#3aeb23");
     } else {
       setTitle("you got caught!");
+      setColor("#ff0505");
     }
   };
 
@@ -49,10 +52,11 @@ export default function DiceScreen() {
           style={styles.bigImage}
           resizeMode="cover"
         >
-          <Text style={styles.title}>{title}</Text>
+          <Text style={[styles.title, {color}]}>{title}</Text>
           <TouchableOpacity style={styles.touchable} onPress={buttonTapped}>
             <Image source={uri} style={styles.image} />
           </TouchableOpacity>
+          <Text style={styles.explanationText}>Tap to try to escape</Text>
         </ImageBackground>
       </View>
     </CustomSafeAreaView>
@@ -89,5 +93,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "flex-start",
     width: "100%",
+  },
+  explanationText: {
+    fontSize: 60,
+    textAlign: "center",
+    textShadowColor: 'black',
+    textShadowOffset: {width: -1, height: 1},
+    textShadowRadius: 10,
+    color: "white",
+    marginVertical: 20,
+    fontFamily: "Quasimodo",
   },
 });
