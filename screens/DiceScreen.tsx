@@ -56,7 +56,7 @@ export default function DiceScreen() {
           <TouchableOpacity style={styles.touchable} onPress={buttonTapped}>
             <Image source={uri} style={styles.image} />
           </TouchableOpacity>
-          <Text style={styles.explanationText}>Tap to try to escape</Text>
+          <Text style={styles.explanationText}>Tap to roll the dice</Text>
         </ImageBackground>
       </View>
     </CustomSafeAreaView>
