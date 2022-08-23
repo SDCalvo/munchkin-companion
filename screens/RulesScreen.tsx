@@ -1,31 +1,93 @@
-import { StyleSheet } from 'react-native';
+import React from "react";
+import { StyleSheet, ScrollView, Image, Dimensions } from "react-native";
+import { Text, View } from "../components/Themed";
+import CustomSafeAreaView, {
+  currentHeight,
+} from "../components/CustomSafeAreaView";
 
-import EditScreenInfo from '../components/EditScreenInfo';
-import { Text, View } from '../components/Themed';
-
+const windowWidth = Dimensions.get('window').width;
+console.log(windowWidth);
 export default function RulesScreen() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Rules</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/TabTwoScreen.tsx" />
-    </View>
+    <CustomSafeAreaView backgroundColor={"#fad096"}>
+      <ScrollView style={styles.scrollView}>
+        <View style={styles.container}>
+          <Image
+            source={require("../assets/images/rules-header.png")}
+            style={styles.image}
+          />
+          <Image
+            source={require("../assets/images/rules-1.png")}
+            style={styles.image}
+          />
+          <Image
+            source={require("../assets/images/rules-2.png")}
+            style={styles.image}
+          />
+          <Image
+            source={require("../assets/images/rules-3.png")}
+            style={styles.image}
+          />
+          <Image
+            source={require("../assets/images/rules-4.png")}
+            style={styles.image}
+          />
+          <Image
+            source={require("../assets/images/rules-5.png")}
+            style={styles.image}
+          />
+          <Image
+            source={require("../assets/images/rules-6.png")}
+            style={styles.image}
+          />
+          <Image
+            source={require("../assets/images/rules-7.png")}
+            style={styles.image}
+          />
+          <Image
+            source={require("../assets/images/rules-8.png")}
+            style={styles.image}
+          />
+          <Image
+            source={require("../assets/images/rules-9.png")}
+            style={styles.image}
+          />
+          <Image
+            source={require("../assets/images/rules-10.png")}
+            style={styles.image}
+          />
+          <Image
+            source={require("../assets/images/rules-banner.png")}
+            style={styles.image}
+          />
+          <Image
+            source={require("../assets/images/rules-11.png")}
+            style={styles.image}
+          />
+          <Image
+            source={require("../assets/images/rules-12.png")}
+            style={styles.image}
+          />
+        </View>
+      </ScrollView>
+    </CustomSafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  scrollView: {
+    flex: 1,
+    backgroundColor: "#fcecd2",
+    marginTop: -(currentHeight as number),
+  },
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    backgroundColor: "#fcecd2",
   },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
+  image: {
+    flex: 1,
+    width: windowWidth,
+    resizeMode: "contain",
   },
 });

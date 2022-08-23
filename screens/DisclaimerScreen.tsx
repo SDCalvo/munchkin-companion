@@ -1,4 +1,5 @@
 import { StyleSheet, Image } from 'react-native';
+import * as Linking from 'expo-linking';
 import CustomSafeAreaView, {
   currentHeight,
 } from "../components/CustomSafeAreaView";
@@ -6,6 +7,17 @@ import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
 
 export default function DisclaimerScreen() {
+
+  const onPress = async () => {
+    const url = 'https://levelcounter.sjgames.com';
+    console.log(await Linking.canOpenURL(url));
+    if (await Linking.canOpenURL(url)) {
+      await Linking.openURL(url);
+    } else {
+      console.log(`Don't know how to open url: ${url}`);
+    }
+  }
+  
   return (
     <CustomSafeAreaView backgroundColor={"#d3aa72"}>
       <View style={styles.container}>
@@ -31,6 +43,12 @@ export default function DisclaimerScreen() {
         <Text style={styles.text}>
           If you have any questions, comments, or concerns, please contact me at santiago.d.calvo@gmail.com.
         </Text>
+        <Text style={styles.text}>
+          Also don't forget to check out the OFFICIAL Munchkin Level Counter app!
+        </Text>
+        <Text style={styles.text}>
+          <Text style={styles.link} onPress={onPress}>levelcounter.sjgames.com</Text>
+        </Text>
         <Image source={require('../assets/images/zombies.png')} style={styles.image} />
       </View>
     </CustomSafeAreaView>
@@ -49,7 +67,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   title: {
-    fontSize: 60,
+    fontSize: 40,
     fontFamily: 'Quasimodo',
     textAlign: 'center',
   },
@@ -58,9 +76,13 @@ const styles = StyleSheet.create({
     height: 250,
   },
   text: {
-    fontSize: 18,
+    fontSize: 17,
     textAlign: "center",
     color: "white",
-    marginBottom: 8,
+    marginBottom: 5,
+  },
+  link: {
+    color: "white",
+    textDecorationLine: "underline",
   },
 });

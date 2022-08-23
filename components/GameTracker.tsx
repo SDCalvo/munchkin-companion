@@ -157,7 +157,7 @@ export default function GameTracker({ color, image }: GameTrackerScreenProps) {
       <View style={styles.imageSubContainer}>
         <Image source={image} style={styles.image} />
         <TouchableOpacity
-          style={styles.button}
+          style={[styles.button, {paddingHorizontal: 0}]}
           onPress={() =>
             setGameState({
               ...gameState,
@@ -168,11 +168,11 @@ export default function GameTracker({ color, image }: GameTrackerScreenProps) {
           <FontAwesome
             name="male"
             size={30}
-            style={{ opacity: gameState.gender === "male" ? 1 : 0.5 }}
+            style={[{ opacity: gameState.gender === "male" ? 1 : 0.5, paddingHorizontal: 15, }, styles.icon]}
           />
         </TouchableOpacity>
         <TouchableOpacity
-          style={styles.button}
+          style={[styles.button, {paddingHorizontal: 0}]}
           onPress={() =>
             setGameState({
               ...gameState,
@@ -183,7 +183,7 @@ export default function GameTracker({ color, image }: GameTrackerScreenProps) {
           <FontAwesome
             name="female"
             size={30}
-            style={{ opacity: gameState.gender === "female" ? 1 : 0.5 }}
+            style={[{ opacity: gameState.gender === "female" ? 1 : 0.5, paddingHorizontal: 13, }, styles.icon]}
           />
         </TouchableOpacity>
       </View>
@@ -321,5 +321,11 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     padding: 5,
     borderWidth: 1,
+  },
+  icon: {
+    color: "white",
+    backgroundColor: "black",
+    borderRadius: 50,
+    paddingVertical: 10,
   },
 });
