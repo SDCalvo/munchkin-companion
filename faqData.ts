@@ -378,6 +378,166 @@ const DATA = [
     subTitle: "Munchkin",
   },
   {
+    question: `If someone makes me help him with the Kneepads of Allure, can I backstab him, play cards against him, etc., so we both have to Run Away?`,
+    answer: `You bet. You're required to join the combat, not to try to win.`,
+  },
+  {
+    question: `Can I use Help Me Out Here to take the Kneepads of Allure and then make someone help me?`,
+    answer: `As long as the person you force to help you can make the difference between winning and losing (per Help Me Out Here's requirements), you most definitely can. Don't expect anyone to like you afterward . . .`,
+  },
+  {
+    question: `Can I use Help Me Out Here to take Pollymorph Potion (or Magic Lamp, or . . .) to take a monster out of the fight?`,
+    answer: `For purposes of Help Me Out Here, "winning" means beating the monster's combat strength. The Item you take must raise your combat strength enough to beat the monster's (or, as with the Kneepads, immediately lead to that situation). You cannot use Help Me Out Here if you are already winning, you cannot use it to take an Item that isn't strong enough to put you over the monsters, and you cannot use it to take an Item that doesn't change your combat strength.`,
+  },
+  {
+    question: `How often can a Thief steal?`,
+    answer: `As long as he has cards to discard.`,
+  },
+  {
+    question: `What happens to a Level 1 Thief who fails an attempt to steal? Does he die?`,
+    answer: `Nothing happens to him. You can't go below Level 1. (Beware the Level 1 Thief – he literally has nothing to lose!)`,
+  },
+  {
+    question: `Can a Thief steal something while he is in combat?`,
+    answer: `No. He's preoccupied.`,
+  },
+  {
+    question: `Can a Thief steal from someone else while THEY are in combat?`,
+    answer: `No. They're preoccupied.`,
+  },
+  {
+    question: `Can a Thief steal from someone while neither he nor his victim is in combat, but someone else is?`,
+    answer: `Yes.`,
+  },
+  {
+    question: `Can a Thief backstab himself?`,
+    answer: `No. It would be very munchkinly, but the card specifically says "another player."`,
+  },
+  {
+    question: `I have just drawn Divine Intervention face down. What happens now?`,
+    answer: `As the card says, no matter how it is drawn, all Clerics go up a level immediately. Show the card, and, if you are a Cleric, play the card in glee. Otherwise, play the card with disgust to show your contempt for those lucky people who are . . .`,
+  },
+  {
+    question: `What happens if a player gets Divine Intervention in his opening hand?`,
+    answer: `The player should show the card immediately. All players who can become Clerics may choose to do so and go up a level.`,
+  },
+  {
+    question: `If a cleric is facing more than one Undead monster, can he discard three cards per monster for a total of +9 against each one?`,
+    answer: `Eeeeeeek! That's munchkinly thinking, but sorry, that's a max three cards per combat, not three cards per monster.`,
+  },
+  {
+    question: `Hoard! says I have to play it immediately. Does this mean as soon as the card is drawn?`,
+    answer: `Hoard! says it must be played as soon as it is drawn. If you draw a card, and it's Hoard!, play it immediately. If you are dealt Hoard!, play it as soon as you pick up your hand, and draw three face-down Treasures.`,
+  },
+  {
+    question: `What if I get Hoard! when I'm drawing face-up Treasures?`,
+    answer: `Draw three more face-up Treasures and discard Hoard! Distribute the now-larger Treasure pile according to the agreement you made with your helper.`,
+  },
+  {
+    question: `What if I have to choose between cards and one of those is Hoard!?`,
+    answer: `If a card makes you draw and choose between cards, and Hoard! is one of those you have to choose between, you do not play Hoard! until you choose it as the card to keep. Then play it immediately.`,
+  },
+  {
+    question: `If I play a card such as Wand of Dowsing that lets me put Hoard! in my hand, what happens?`,
+    answer: `It goes into your hand for a split second, then triggers the "play immediately" condition. Draw the three cards face down.`,
+  },
+  {
+    question: `Can a cleric use Hoard! over and over by discarding it before he starts drawing his three cards, and drawing it again, and discarding it and drawing three more, and so on?`,
+    answer: `No. Discard Hoard! AFTER the three cards are drawn. GREAT try, though!`,
+  },
+  {
+    question: `Can a Wizard use his charm ability if he's not involved in the combat?`,
+    answer: `No. The card says this is something he may do instead of fighting a monster. It's not for interfering with others' fights, so the Wizard in question must be the munchkin who opened the door or the helper.`,
+  },
+  {
+    question: `If a Wizard is helping in a combat and charms a monster, does he get the Treasure from that monster?`,
+    answer: `The Treasures gained from a charmed monster are no different from Treasures from a monster that is killed, so the Treasures (drawn after the combat is over and all remaining monsters, if any, are defeated) are distributed according to the final agreement that the Wizard negotiated for his help.`,
+  },
+  {
+    question: `Faced with multiple monsters, can a Wizard discard his whole hand to charm one, take its treasure, discard that new hand to Charm the next one, and so on?`,
+    answer: `No. Faced with multiple hostile monsters, one does not get any of their treasures until all are defeated.`,
+  },
+  {
+    question: `Can I use Friendship Potion on a monster if I fail to Run Away?`,
+    answer: `No! The combat ended when you failed to kill it.`,
+  },
+  {
+    question: `What if a monster gets a Mate, or you get a Doppleganger, and then somebody backstabs you or plays potions on one side or the other?`,
+    answer: `Mate duplicates monster enhancers, not other types of cards. A Doppleganger is an exact duplicate of the player – essentially, figure his combat strength and then double it. If the player's strength changes, so does the Doppleganger's.`,
+  },
+  {
+    question: `Somehow, I ended up with two Dopplegangers and played them both. Is my combat strength tripled or quadrupled?`,
+    answer: `Each Doppleganger duplicates you and you alone, so your combat strength is tripled. Otherwise, you end up with Dopplegangers duplicating each other, which leads in four short steps to a spacetime implosion that ruins everyone's day.`,
+  },
+  {
+    question: `Is my Doppleganger a "helper" as defined in the rules?`,
+    answer: `No. Only other munchkins can be "helpers" in that sense.`,
+  },
+  {
+    question: `Some cards, like Magic Lamp, Illusion, and Pollymorph Potion, let you get rid of ONE monster. If you get rid of a monster, does its mate (or, in the expansions, its relatives) also leave? In other words, is Mate an enhancement card like Ancient or fully separate like Wandering Monster additions?`,
+    answer: `A Mate is like a Wandering Monster. There are now two monsters, and you have to get rid of them individually. (We have found that it is easiest to get rid of the Mate card so the actual monster is still there for reference.) If you play the get-rid-of-it card before somebody tries to play Mate, though, there's no monster left for the Mate to join, so Mate can't be played.`,
+  },
+  {
+    question: `What if the Gazebo appears as a Wandering Monster after the player already has a helper?`,
+    answer: `The helper has to back off and let the player whose turn it is fight the Gazebo, and the other monster(s), alone.`,
+  },
+  {
+    question: `If I'm not a Halfling, can I just ignore the Stoned Golem entirely?`,
+    answer: `Yep. It's like it's not even there. The Stoned Golem makes a bad Wandering Monster because the victims can just ignore it, unless one of the combatants is a Halfling. But if you don't kill it, you don't get its level and Treasures, even if you do kill all remaining monsters! (And you can't go back for it after the main fight is through; it's Stoned, not stupid!)`,
+  },
+  {
+    question: `Can I use Instant Wall to force someone to Run Away?`,
+    answer: `No. Instant Wall allows one or two willing munchkins to Run Away automatically. Instant Wall should be used after the players have decided they need to Run Away but before they roll the die.`,
+  },
+  {
+    question: `Are the Ghoulfiends supposed to be Undead?`,
+    answer: `No, they're like that all the time.`,
+  },
+  {
+    question: `The Ghoulfiends card says only your Level counts in the fight, not your Items. Can you still use an item to avoid fighting entirely - say, the Magic Lamp?`,
+    answer: `Yes.`,
+  },
+  {
+    question: `Can I use my Warrior Berserking ability against the Ghoulfiends?`,
+    answer: `No. The Ghoulfiends text should say "No items or other bonuses help against them - fight with your Level only." (This is an official erratum.)`,
+  },
+  {
+    question: `King Tut and the Wight Brothers say "Characters of higher Levels [than 3] lose two levels, even if they escape." Does that mean you lose two levels even if you defeat those monsters?`,
+    answer: `No. But if you cannot defeat them, then you must try to run away, and you'll lose the two levels even if you do escape. If they catch you, of course, you do suffer the Bad Stuff from those Monsters. (But you don't lose the two levels twice!)`,
+  },
+  {
+    question: `When does Magic Lamp let me keep the treasure?`,
+    answer: `If you are fighting one monster, and use Magic Lamp on that single monster, you collect the treasures from that monster. If there are multiple monsters, and you use Magic Lamp to get rid of one of the monsters, you do not get any of the treasures from that monster even if you defeat the remaining ones (you would still get the treasure from those monsters, though).`,
+  },
+  {
+    question: `If I use Transferral Potion to steal someone else's fight, can I then use cards or abilities, such as Magic Lamp, that are usable only on my turn?`,
+    answer: `No. It's not your turn. The card says the original player "resumes his turn," but that doesn't mean it isn't his turn at that moment, just that you've interrupted the sequence of events on his turn.`,
+  },
+  {
+    question: `The Wand of Dowsing doesn't say "Usable once only," but I have to discard it after I use it. Can I treat it like a one-shot (play it from my hand rather than the table, or play it during combat)?`,
+    answer: `The clear intent is that this is a one-shot card, even though it lacks the magical "Usable once only" language, and so the rules of one-shot cards apply to this one as well. It can be played during combat, and it can be used from the hand. We've fixed this error in recent printings.`,
+  },
+  {
+    question: `I was beating a monster and one of my opponents played Wand of Dowsing and said I couldn't claim victory until she had searched the entire discard pile. It took her 20 minutes to decide! Is that really what "reasonable time" means?`,
+    answer: `Not even a little. "Discard diving" as a stalling tactic is not in the spirit of the rules. If your opponent knew there was a specific card she wanted to play against you, she should have told you as she went into the discards so you knew she wasn't just wasting time. You would have been perfectly correct to call reasonable time if it was clear she was just searching for something to play against you. In informal, friendly games, many groups allow a player to say, "I'm pulling the +10 monster enhancer to play on you," and count that as playing the card even if the dowsing player doesn't yet have it in hand, as long as the card is actually in the discards to be retrieved.`,
+  },
+  {
+    question: `I'm a Cleric and I was fighting a monster. The opponent to my left played Wand of Dowsing and just said he was pulling out a GUAL, but didn't actually do it. I would have used Resurrection to take that GUAL card for myself if it had been there! Is this legal?`,
+    answer: `By the strict letter of the card, no; you actually have to pull out the card you want. (You aren't required to play that card, however, so there's no guarantee your opponent would have put it in the discards immediately for you to grab.) However, in an informal game, especially where no one has a way to retrieve discards, it's perfectly fine to say "I'm going to grab and play a GUAL; anyone object if I just say I'm doing it to save some time?"`,
+  },
+  {
+    question: `I played Wand of Dowsing. An opponent played a Curse on me while I was going through the discards. Is it legal for me to grab a Wishing Ring to use to cancel the Curse, even if it wasn't the card I intended to pull?`,
+    answer: `Absolutely. Playing Wand of Dowsing and pulling the card from the discard pile counts as a single action, so the effect of the Curse has to wait until you are done. Even if you had said what card you were going for, you're allowed to change your mind until you actually complete the action. However, once you have pulled the card, the Curse happens - if you don't get a card that will let you cancel the Curse, you have to resolve the Curse's effects before playing the card you just pulled out of the discard pile.`,
+  },
+  {
+    question: `I used an ability to automatically kill a monster. Another player used Wandering Monster to add a monster to the fight, and then played Transferral Potion to move the monster to himself. He beat it. Who gets the level and Treasures for the monster I killed?`,
+    answer: `As of July 2018, if you automatically killed the only monster, combat ended and this whole sequence can't happen. If there were other monsters still fighting, however, this sequence is legal. You get the level and Treasures from the monster you killed after the transferred combat has been resolved. If the other player also wins, you draw Treasures first. (This has been ruled different ways at different times, but we got a ruling directly from Steve, so it is official.)`,
+  },
+  {
+    question: `The Hireling confuses me. Other than the +1 Bonus, what is the point of the card?`,
+    answer: `It's basically another Cheat! card that lets you swap out the attached Item. But it's vulnerable to the Kill the Hireling Go Up a Level card, and anything that makes you lose the Hireling takes the attached Item with it.`,
+  },
+  {
     spacer: true,
   },
 ];
