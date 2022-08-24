@@ -125,7 +125,8 @@ const DATA = [
   },
   {
     question: `Are cards like Yuppie Water, that don't say "Potion" on them but LOOK like Potions, considered potions for rules purposes?`,
-    answer: "If it's a liquid in a container, it can be considered a potion. (But note that other types of one-shot Items, such as Grenades and Ichors, must include that specific word! Potions are special. Also note that Ichors aren't Potions and Potions aren't Ichors.)",
+    answer:
+      "If it's a liquid in a container, it can be considered a potion. (But note that other types of one-shot Items, such as Grenades and Ichors, must include that specific word! Potions are special. Also note that Ichors aren't Potions and Potions aren't Ichors.)",
   },
   {
     question: `Must I put my "usable once only" Items on the table before using them?`,
@@ -136,15 +137,19 @@ const DATA = [
     answer: `In a more rigorous game, we would have labeled all the swords, axes, etc. as "weapons." Try to use common sense, even if this IS Munchkin. As a general rule, any item that uses Hands and is not already labeled as something else can be considered a weapon, as can items like the Singing and Dancing Sword that are obviously weapons.`,
   },
   {
-    question: "Can you sell Items that total less than 1,000 Gold Pieces, just to get them out of circulation?",
-    answer: "No. If the Items aren't worth a total of at least 1,000 Gold Pieces, you can't sell them.",
+    question:
+      "Can you sell Items that total less than 1,000 Gold Pieces, just to get them out of circulation?",
+    answer:
+      "No. If the Items aren't worth a total of at least 1,000 Gold Pieces, you can't sell them.",
   },
   {
-    question: "Assuming I have at least 1,000 Gold Pieces in Items, can I throw in some Items with No Value as part of the sale?",
+    question:
+      "Assuming I have at least 1,000 Gold Pieces in Items, can I throw in some Items with No Value as part of the sale?",
     answer: `Absolutely. "No Value" is exactly the same as "0 Gold Pieces," so you can sell these Items unless the card says otherwise. (But "No Value" must appear on the card! If a card has nothing at all listed for a value, it is not an Item and cannot be sold.)`,
   },
   {
-    question: "The rules say that cards in play must be traded or discarded. When can I discard them?",
+    question:
+      "The rules say that cards in play must be traded or discarded. When can I discard them?",
     answer: `This depends on the type of card. First, it must be in play in front of you (no discarding other people's cards, silly). Race and Class cards (including Half-Breed and Super Munchkin), and other similar cards (See Important Note #5.), can be discarded at any time, including to power a special ability, but not an ability for the discarded Race or Class (unless the ability requires discarding that particular Race or Class). Curses that remain on the table in front of you cannot be discarded. Item cards are the only cards that can be traded, and, as long as they aren't prevented from being discarded (say, by a Curse), can only be discarded in the following ways:
 
   - As part of a sale.
@@ -182,6 +187,38 @@ const DATA = [
   {
     subTitle: `Races, Classes, etc.`,
     disclaimer: `Reminder: Class* and Super Munchkin* refer to any Class-like or SM-like card.`,
+  },
+  {
+    question: `If I have Half-Breed and one other Race card, is my other half human?`,
+    answer: `Yes. You get the "all the advantages, none of the disadvantages" benefit of Half-Breed for your other Race, but you can't use Human-only items or claim bonuses against monsters that have trouble fighting Humans. (As a practical matter, there are very few of these, so this doesn't come up that often.) Note that this answer is specific to Race and Half-Breed.`,
+  },
+  {
+    question: `Can I use two Super Munchkin* cards to be more than two Classes*?`,
+    answer: `No. Unless you want to make it a house rule, of course. Munchkin 7 - Cheat With Both Hands has cards that allow you to have three or even more Classes or Races, among other crazy new overpowered cards you didn't realize you needed.`,
+  },
+  {
+    question: `Can I Super Munchkin* to be the same Class* twice and get double benefits?`,
+    answer: `Gaaah. No. Each player may have only one copy of a specific Class* in play. In other words: If you are a Super Warrior and have another Warrior card, you can not play it on yourself without discarding the Warrior card already in play. `,
+  },
+  {
+    question: `When using Super Munchkin*, can you discard one of your Classes* and replace it with another, or just not replace it?`,
+    answer: `You can turn from, e.g., a Super Cleric-Wizard into a Super Cleric, or, if you have the Thief card, Cleric-Thief. This doesn't make you lose Super Munchkin*. You cannot have a "naked" Super Munchkin* card in play, even briefly.
+    By contrast, Extra Style and Extra Training may be played without a Style or Training.`,
+  },
+  {
+    question: `Can I replace my current Class* with the same Class* to avoid Charity?`,
+    answer: `You can discard a Class* at any time. You can play a Class* at any time on your turn. There's no requirement that the new Class* be different from the old one. So, yes.`,
+  },
+  {
+    question: `If I only have one Class*, and am changing the Class*, do I lose any items that say "if you lose your Class*, discard this card"?`,
+    answer: `As long as you play the new Class* immediately after discarding the old Class*, no. Think of switching a Class* as one action with two parts (discarding the old Class*, playing a new Class*) so that action has to complete before any other actions would start.`,
+  },
+  {
+    question: `Can I keep a Class* out on the table sideways so I can use it later?`,
+    answer: `No. The only sort of cards that can be played to the table but not used are Items.`,
+  },
+  {
+    subTitle: `Combat`,
   },
   {
     spacer: true,

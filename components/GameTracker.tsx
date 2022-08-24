@@ -235,7 +235,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    fontSize: 20,
+    fontSize: 18,
     textAlign: "center",
     backgroundColor: "black",
     borderRadius: 50,
@@ -249,7 +249,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   title: {
-    fontSize: 20,
+    fontSize: 18,
     textAlign: "center",
     textShadowColor: 'rgba(1, 1, 1, 1)',
     textShadowOffset: {width: -1, height: 1},
@@ -270,7 +270,7 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   nameInput: {
-    fontSize: 20,
+    fontSize: 18,
     textAlign: "center",
     fontFamily: "Quasimodo",
     textShadowColor: 'rgba(1, 1, 1, 1)',
@@ -284,11 +284,11 @@ const styles = StyleSheet.create({
   name: {
     alignItems: "center",
     justifyContent: "center",
-    fontSize: 20,
+    fontSize: 18,
     textAlign: "center",
   },
   text: {
-    fontSize: 20,
+    fontSize: 18,
     textAlign: "center",
     width: "30%",
     fontFamily: "Quasimodo",
@@ -313,7 +313,7 @@ const styles = StyleSheet.create({
     paddingLeft: 5,
   },
   textTotal: {
-    fontSize: 20,
+    fontSize: 18,
     textAlign: "center",
     width: "30%",
     fontFamily: "Quasimodo",
