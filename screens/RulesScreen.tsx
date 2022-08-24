@@ -14,7 +14,7 @@ export default function RulesScreen() {
         <View style={styles.container}>
           <Image
             source={require("../assets/images/rules-header.png")}
-            style={styles.image}
+            style={styles.imageOne}
           />
           <Image
             source={require("../assets/images/rules-1.png")}
@@ -84,6 +84,12 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     backgroundColor: "#fcecd2",
+  },
+  imageOne: {
+    marginTop: 10,
+    width: windowWidth,
+    height: windowWidth * 0.25,
+    resizeMode: "contain",
   },
   image: {
     flex: 1,
