@@ -6,7 +6,7 @@ import CustomSafeAreaView, {
 } from "../components/CustomSafeAreaView";
 
 const windowWidth = Dimensions.get('window').width;
-console.log(windowWidth);
+
 export default function RulesScreen() {
   return (
     <CustomSafeAreaView backgroundColor={"#fad096"}>

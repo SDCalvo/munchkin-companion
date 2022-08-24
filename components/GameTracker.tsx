@@ -213,6 +213,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     width: "100%",
     height: "100%",
+    paddingBottom: 5,
   },
   valueEditContainer: {
     flexDirection: "row",
