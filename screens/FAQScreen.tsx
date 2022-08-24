@@ -130,6 +130,7 @@ const styles = StyleSheet.create({
     textShadowRadius: 10,
     marginTop: 10,
     marginHorizontal: 10,
+    textDecorationLine: "underline",
   },
   text: {
     fontSize: 20,

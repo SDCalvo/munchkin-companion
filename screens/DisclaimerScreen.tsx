@@ -72,8 +72,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   image: {
-    width: 250,
-    height: 250,
+    flex: 1,
+    resizeMode: "contain",
   },
   text: {
     fontSize: 17,

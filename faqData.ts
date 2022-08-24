@@ -221,6 +221,163 @@ const DATA = [
     subTitle: `Combat`,
   },
   {
+    question: `How do I handle ties?`,
+    answer: `Monsters win ties, unless at least one of the munchkins in the fight is a Warrior or you have some other card that says you do.`,
+  },
+  {
+    question: `When you are faced with two or more monsters, can you kill one and flee the other?`,
+    answer: `No. If you have cards that let you abolish one entirely (like Pollymorph Potion) then you may do that, and fight the other one(s). (You will have to win that fight before you can claim any treasure at all . . . you can't charm one monster, grab its treasure, and then try to fight its mate.) But you can't fight one and flee the other. They fight you together.`,
+  },
+  {
+    question: `What happens when a Wandering Monster comes along that would ignore or befriend one player in a fight, but not the other? For instance, when the Wandering Monster is an Amazon and one player is female?`,
+    answer: `When one player helps another, the monsters do not fight the players separately . . . so if one player is female, the wandering Amazon would donate a Treasure and leave without fighting. (Remember that Treasures always go to the main fighter to distribute according to whatever agreement was reached.)`,
+  },
+  {
+    question: `If one monster is affected (positively or negatively) by fire/flame weapons, are all of them?`,
+    answer: `A monster's immunity (or weakness) is given to all others in the fight. (This does not include straight combat bonuses or penalties; if one monster gets a -2, that doesn't mean EVERY monster has a cumulative -2 – it's -2 for the monsters taken as a group. And if a monster won't fight, that doesn't mean EVERY monster won't fight, just that one.) If it helps, think of the combat as a combined encounter, and the various immunities or weaknesses as conditions affecting the encounter.`,
+  },
+  {
+    question: `Am I allowed to ask for help if I am currently winning the fight? The rules say I can ask for help if I'm losing, but nothing about if I'm winning.`,
+    answer: `That's because if you're winning, you don't need help, and a true munchkin would never ask for help he doesn't need. Unless a card says otherwise (and a couple do, for their own weird reasons), you may not ask for help if you are winning a combat.`,
+  },
+  {
+    question: `Do combat bonuses that monsters receive against Classes* stack? For example, if a monster gets +4 against Warriors and +4 against Wizards and I'm a Super Warrior/Wizard, does that monster get +8 in combat against me?`,
+    answer: `Unless it says otherwise on the card itself, monster combat bonuses do stack. This means that the above monster would be a +8.`,
+  },
+  {
+    question: `If somebody changes your Class* during combat (such as with a Curse), does that change your combat bonuses?`,
+    answer: `Yes. If you quit being a Class*, you can no longer get a bonus from Class*-only items, and so on. You can never get the benefit of two Classes* in one combat unless you have a special card that allows it. Exception: Abilities driven by discards work even if the Class* with that ability is lost. If a Warrior had already discarded a card to get a +1 combat bonus, and then stopped being a Warrior, he would keep the bonus, but wouldn't be able to discard any more cards for the Warrior bonus. Yes, this rule can be used to the player's advantage. Hee hee. (However, you cannot discard a Class* and play another copy of that card to use its abilities twice.)`,
+  },
+  {
+    question: `If you use a one-shot Item during combat and someone tries to make it disappear through Curse or Theft, do you get the bonus?`,
+    answer: `Theft doesn't work while you are in combat. Use of a Curse could destroy an Item as you try to use it, but once you play the Item into the fight, it's not yours to be Cursed anymore.`,
+  },
+  {
+    question: `Some cards say they automatically kill a certain type of Monster (like the Potion of Halitosis and the Floating Nose, or the Churninator and Level 1 monsters). Can anyone interfere with this? Can anyone play a Wandering Monster?`,
+    answer: `As of July 2018, removing the final monster from a combat ends the combat immediately. There is a new FAQ specifically about the Churninator in the Munchkin Cthulhu section.`,
+  },
+  {
+    question: `One of my opponents added a Wandering Monster that has a "before combat" effect (e.g., the Tongue Demon makes you discard an Item before combat). Since I'm already in combat, do I still have to do it?`,
+    answer: `No. You lucked out this time. However, rules that say "When this monster enters combat" do take effect.`,
+  },
+  {
+    question: `My friends start counting 2.6 seconds as soon as they turn over a monster and combat begins. That's not even enough time to read the card! Is this legal?`,
+    answer: `The rule says you must get "a reasonable time" to respond when another player is winning a fight. What your friends are doing is not reasonable; you should be able to read the card to determine what, if anything, you want to do. On the other hand, you cannot take time during a fight to read every card on the table, contemplate your many (or few) options, or use a card to "discard dive," hoping to find something you can use in the fight. The "2.6 seconds" part of the rule is a joke; the intent is that you cannot hold up the game indefinitely just because someone else is winning, or, conversely, that you cannot immediately declare a win before your opponents can react.`,
+  },
+  {
+    question: `Does the "reasonable time rule" apply to defeating a monster without killing it, or just to killing it?`,
+    answer: `Any sort of defeat. If you defeat it without killing it, other players still have a reasonable time to play an applicable card to frustrate you. However, if you removed the only monster from the fight (with Magic Lamp, for instance), the fight is over. Your opponents cannot play monster enhancers or other similar cards that affect a specific monster, because there isn't one there to fight, and they can't use any special rules for bringing in monsters (such as the Shark rules from Munchkin Booty) that depend on having a monster in the fight.`,
+  },
+  {
+    question: `If a card that affects "your next combat" is played on you during a combat, does it affect THAT combat, or the next one you're in?`,
+    answer: `If the combat is still unresolved (and obviously it is, because people are still playing cards on you for it), then that combat is the "next" one. Most Munchkin games say this explicitly in the rules, but it's true even if we left it out by mistake.`,
+  },
+  {
+    question: `I'm going to have to attempt to Run Away from a monster. Can I Curse other munchkins before I roll the die? What about after?`,
+    answer: `Even though curses can be played at any time, you'll have to honor the die roll before doing anything else. So yes, you can Curse before rolling the die, but not between the die roll and the monster's Bad Stuff/your escape. After that, you can resume Cursing as normal.`,
+  },
+  {
+    question: `I'm fighting a monster that says "Will not pursue anyone of Level X or below." I'm below that Level; can I still fight the monster?`,
+    answer: `You certainly can fight the monster. If you do not win the combat and have to Run Away, you escape automatically (no roll required).`,
+  },
+  {
+    question: `If a low-Level munchkin encounters a monster that won't chase him, does the munchkin get the treasure?`,
+    answer: `Nonononono. The munchkin must still try to defeat the monster. But if he cannot defeat it, he automatically escapes without rolling to Run Away, suffering no Bad Stuff. He doesn't get any rewards for failing to defeat the monster!`,
+  },
+  {
+    question: `I'm at Level 2 and I encounter a Level 9 monster. Another player (Level 5) joins the combat. A third player wanders in a new monster that will not pursue Level 3 or below. We are now losing and have to run away. Does the wandered-in monster go after both of us?`,
+    answer: `In combat, monsters fight side by side. But when it comes to pursue the fleeing munchkins, they act individually and munchkins must attempt to escape from each as normal. So the wandered-in monster will not pursue you, but will pursue your helper.`,
+  },
+  {
+    question: `I have a card that lets me Run Away from a combat automatically. But I'm facing a monster that says escape is impossible. Can I Run Away or not?`,
+    answer: `You cannot use your automatic Run Away ability, because you never even get a chance to try. You can Run Away automatically from any other monsters, even in the same combat, that do not have that restriction. (We have not ruled this consistently in the past, but this is the official answer going forward.)`,
+  },
+  {
+    question: `Can I play Go Up a Level cards on another player - for instance, to make him go up to a level so that a monster that would previously ignore him will now chase him?`,
+    answer: `This is not the original intent of Go Up a Level cards (GUALs), but it is such a munchkinly and vile idea that we liked it too much to say no. But just as when playing a GUAL on yourself, the munchkin must legally be able to gain that level. You cannot play a GUAL card, even one with a secondary effect, on a munchkin at Level 9, and you cannot force another player to do something he doesn't want to do (e.g., discard an Item) by playing a GUAL on him.`,
+  },
+  {
+    question: `Do I have to kill a monster? Even if I'm winning, can I just choose to Run Away?`,
+    answer: `You can't Run Away if you are winning with what you have in play. However, you are not required to exert your full effort to beat a monster, even if you could win handily by playing one-shots or using other cards or abilities. So, in that sense, you would be able to choose to Run Away.`,
+  },
+  {
+    question: `Do I have to Run Away? What if I WANT to die?`,
+    answer: `Your character does not want to die. Your character will always TRY to Run Away. If you want to die, hope for a bad die roll.`,
+  },
+  {
+    question: `Exactly when do you die, and how long do you stay dead?`,
+    answer: `You die when you get Bad Stuff that says you're dead. (A very few other cards can cause Death as well.) If you still need to Run Away from other monsters, you are excused from their Bad Stuff, because you're dead. While you are dead, you cannot receive cards for any reason, and you cannot level up or win the game. You STAY dead only until the next person's turn starts. Your new character appears at that point and may join normally in the combat, though you will get no new cards until someone gives you Charity, you get cards as payment for helping in a combat, or your next turn starts.`,
+  },
+  {
+    subTitle: `Cheat!`,
+  },
+  {
+    question: `I had Cheat! attached to a 2 Hands Big item, along with a second un-Cheated Big item. I tried to play another card that took Hands and my friend said that I couldn't because the Cheat! was already negating the Bigness of the first card. Is he right?`,
+    answer: `No. Cheat! completely negates the requirements of an Item (but doesn't change its essential nature; if it's Big, it's still Big, so it can't be stolen by a Thief). The easiest way to think about Cheat! is to ignore the Item with Cheat! attached when you are figuring out whether your character is legal.`,
+  },
+  {
+    question: `If you have the Cheat! card on one Item, can you move it to another one?`,
+    answer: `No. Once you perform the initial cheat, the card cannot be moved to another Item. So if something happens to make the cheated Item legal for you . . . too bad.`,
+  },
+  {
+    question: `Can I use the Cheat! card to take an Item from another player, or use it to search through the discard pile to take an Item from it?`,
+    answer: `No and no . . . The Cheat! card allows you to equip an Item you normally couldn't due to Class/Race/slot/etc. restrictions. In other words, a second piece of Headgear, a second Big item (for non-Dwarves), an Item that requires a Hand or two when your other two are full, or the Bow With Ribbons for non-Elves. You have to have the Item already, and cannot use the Cheat! card to take it. (By a strict reading of the text on the Cheat! card, you can play it on an Item you can use, but why would you want to?)`,
+  },
+  {
+    question: `If my only small Item has a Cheat! card on it, and I get Cursed to lose a small Item, can I say that the cheated Item doesn't count as "small" for the purposes of the Curse?`,
+    answer: `Nice try, but no. Cheat! doesn't take away the Item's properties, it just makes the Item usable for you when it otherwise would not be.`,
+  },
+  {
+    question: `If an item has been cursed (e.g., with Antimatter), can a Cheat! card overrule the curse?`,
+    answer: `If the curse has added a negative effect to the item, a Cheat! card will not remove that effect.`,
+  },
+  {
+    subTitle: "Miscellaneous Questions"
+  },
+  {
+    question: `What is the difference between Munchkin and Munchkin Deluxe (or Star Munchkin and Star Munchkin Deluxe, etc.)?`,
+    answer: `The Deluxe versions each include a folding gameboard that tracks all the players' Levels and has spaces for Door and Treasure decks and discards. They also come with either plastic pawns (older sets) or cardboard standies (newer sets) for each player.`,
+  },
+  {
+    question: `If I announce I'm going to do something, am I locked into that decision or can I change my mind? For instance, I was a Wizard and declared that I was going to fight a monster, but then the monster was enhanced further. Can I change my mind and Charm it?`,
+    answer: `You're NEVER locked into a final decision unless a card or rule says so. (However, there are no "take-backs" once you have played a card or rolled a die.)`,
+  },
+  {
+    question: `If I have two separate cards that both let me roll a die in the same situation (say both let me avoid a Curse) does one take precedence over the other?`,
+    answer: `Pick the one that gives you the best outcome and roll a die. If you fail that roll, try with the next ability you have. You can keep trying as long as you have the abilities to do so.`,
+  },
+  {
+    question: `The art on a card shows a weapon being wielded with two hands, but the card says it only takes one hand. Do I go by the art or the card?`,
+    answer: `Go by the text. If the card says it is a 1 Hand item, it is a 1 Hand item, even if the card art shows it with two hands.`,
+  },
+  {
+    question: `Is the initial sex of a character the same as the sex of the player, or can it be chosen?`,
+    answer: `The rules say the player chooses their starting sex, and that it defaults to the same as the player's if not otherwise specified. We do recognize that these rules assume strict binary gender. If that makes the game less fun for you and your friends, feel free to ignore gender completely.`,
+  },
+  {
+    question: `I was playing in a tournament and my opponent said she was female. She sure looked male to me! What is the rule in this situation?`,
+    answer: `If your opponent said she was female, that's good enough for us. We recommend using either Deluxe sets or a Level Playing Field in all tournament games so there is no possible confusion.`,
+  },
+  {
+    question: `I'm a male, but the only Class* cards I have in my hand are female. Can I still play them? If I do, does it change my sex?`,
+    answer: `Munchkin Classes* have a variety of different representations on them to liven up game play. They have no effect on your in-game sex.`,
+  },
+  {
+    question: `If I'm told to draw two cards and keep one but discard the other and one of the cards has an immediate effect does that effect go off?`,
+    answer: `Only if that's the card you keep. When you are told to decide between cards to keep and discard, the effects of the kept card will go off immediately once you decide that that is the card you are keeping. Otherwise the card you discarded was never in play and never took effect.`,
+  },
+  {
+    question: `When do we resolve cards? As they are played, or once everyone says they're done playing them?`,
+    answer: `As they are played. Some games have a "stack" mechanic, where all cards are resolved at once. Munchkin is not one of them.`,
+  },
+  {
+    question: `A card I played says to "roll a die." What die?`,
+    answer: `If it doesn't specify a particular die or tell you that you can roll any die you want, roll the six-sided die that comes with the game (or any other standard six-sided die, if you have several of them within reach).`,
+  },
+  {
+    subTitle: "Munchkin",
+  },
+  {
     spacer: true,
   },
 ];

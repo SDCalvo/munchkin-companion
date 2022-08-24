@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
   image: {
     width: 250,
     height: 250,
-    marginVertical: 130,
+    marginVertical: 50,
   },
   bigImage: {
     flex: 1,
@@ -93,6 +93,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "flex-start",
     width: "100%",
+    height: "100%",
   },
   explanationText: {
     fontSize: 60,
@@ -101,7 +102,8 @@ const styles = StyleSheet.create({
     textShadowOffset: {width: -1, height: 1},
     textShadowRadius: 10,
     color: "white",
-    marginVertical: 20,
     fontFamily: "Quasimodo",
+    position: "absolute",
+    bottom: 0,
   },
 });
