@@ -84,7 +84,7 @@ export default function FAQScreen() {
 
     useEffect(() => {
       console.log("mounted", mounted);
-      setMounted(true);
+      setTimeout(() =>  setMounted(true), 1000);
     }, []);
 
     return (
@@ -232,20 +232,19 @@ const styles = StyleSheet.create({
   categories: {
     backgroundColor: "#fad096",
     width: "100%",
-    height: 53,
     top: 0,
     position: "absolute",
     zIndex: 2,
-    paddingHorizontal: 10,
     borderColor: "black",
     borderBottomWidth: 3,
+    borderTopWidth: 3,
   },
   itemsCategory: {
     padding: 10,
     border: 1,
     borderRadius: 25,
-    marginRight: 10,
-    marginTop: 3,
+    marginHorizontal: 5,
+    marginVertical: 3,
     color: "white",
     fontSize: 15,
     fontFamily: "Quasimodo",
