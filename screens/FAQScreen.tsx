@@ -20,8 +20,6 @@ const size = Image.resolveAssetSource(image);
 export default function FAQScreen() {
   const flatListRef = useRef<any>();
 
-  const [mounted, setMounted] = useState(false);
-
   const renderItem = ({ item }: any) => {
     if (item.spacerBottom) {
       return <View style={styles.spacerBottom} />;
@@ -51,11 +49,16 @@ export default function FAQScreen() {
   };
 
   const handleItemPress = (index: number) => {
-    flatListRef.current.scrollToIndex({
-      animated: true,
-      index,
-      viewOffset: 60,
-    });
+    try {
+      flatListRef.current.scrollToIndex({
+        animated: true,
+        index,
+        viewOffset: 60,
+      });
+    }
+    catch (e) {
+      console.log(e);
+    }
   };
 
   const Item = ({ item, onPress }: { item: any; onPress: () => void }) => {
@@ -76,12 +79,9 @@ export default function FAQScreen() {
     return <Item item={item} onPress={() => handleItemPress(index)} />;
   };
 
-  type FaqFlatListProps = {
-    setMounted: (mounted: boolean) => void;
-    mounted: boolean;
-  };
+  function FaqFlatList() {
+    const [mounted, setMounted] = useState(false);
 
-  function FaqFlatList({ setMounted, mounted }: FaqFlatListProps) {
     useEffect(() => {
       console.log("mounted", mounted);
       setMounted(true);
@@ -89,22 +89,25 @@ export default function FAQScreen() {
 
     return (
       <View style={styles.subContainer}>
-        <FlatList
-          ref={flatListRef}
-          initialNumToRender={DATA.length}
-          data={DATA}
-          renderItem={renderItem}
-          keyExtractor={(item, index) => index.toString()}
-        />
+        {mounted ? (
+          <FlatList
+            ref={flatListRef}
+            initialNumToRender={DATA.length}
+            data={DATA}
+            renderItem={renderItem}
+            keyExtractor={(item, index) => index.toString()}
+          />
+        ) : (
+          <View style={styles.loadingContainer}>
+            <Text style={styles.title}>Loading...</Text>
+          </View>
+        )}
       </View>
     );
   }
 
   return (
     <CustomSafeAreaView backgroundColor={"#fad096"}>
-      {!mounted && <View style={styles.loadingContainer}>
-          <Text style={styles.title}>Loading...</Text>
-        </View>}
       <View style={styles.categories}>
         <FlatList
           data={DATA}
@@ -115,7 +118,7 @@ export default function FAQScreen() {
         />
       </View>
       <View style={styles.container}>
-        <FaqFlatList setMounted={setMounted} mounted={mounted} />
+        <FaqFlatList />
       </View>
       <Image source={image} style={styles.image} />
     </CustomSafeAreaView>
@@ -130,12 +133,12 @@ const styles = StyleSheet.create({
     marginTop: -(currentHeight as number),
   },
   loadingContainer: {
-    height: windowHeight,
-    width: windowWidth,
-    position: "absolute",
+    flex: 1,
+    height: "100%",
+    width: "100%",
+    alignItems: "center",
     backgroundColor: "black",
-    top: 0,
-    zIndex: 10,
+    justifyContent: "center",
   },
   subContainer: {
     flex: 1,
