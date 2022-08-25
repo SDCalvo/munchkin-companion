@@ -1,4 +1,11 @@
-import { StyleSheet, FlatList, Image, Dimensions } from "react-native";
+import { useEffect, useRef, useState } from "react";
+import {
+  StyleSheet,
+  FlatList,
+  Image,
+  Dimensions,
+  TouchableOpacity,
+} from "react-native";
 import CustomSafeAreaView, {
   currentHeight,
 } from "../components/CustomSafeAreaView";
@@ -6,21 +13,32 @@ import { Text, View } from "../components/Themed";
 import DATA from "../faqData";
 
 const windowWidth = Dimensions.get("window").width;
+const windowHeight = Dimensions.get("window").height;
 const image = require("../assets/images/faq-banner.png");
 const size = Image.resolveAssetSource(image);
 
 export default function FAQScreen() {
+  const flatListRef = useRef<any>();
+
+  const [mounted, setMounted] = useState(false);
+
   const renderItem = ({ item }: any) => {
-    if (item.spacer) {
-      return <View style={styles.spacer} />;
+    if (item.spacerBottom) {
+      return <View style={styles.spacerBottom} />;
+    } else if (item.spacerTop) {
+      return <View style={styles.spacerTop} />;
     } else if (item.header) {
-      return <Text style={styles.header}>{item.header}</Text>;
+      return (
+        <View style={styles.dividers}>
+          <Text style={styles.header}>{item.header}</Text>
+        </View>
+      );
     } else if (item.subTitle) {
       return (
-        <>
+        <View style={styles.dividers}>
           <Text style={styles.subTitle}>{item.subTitle}</Text>
           <Text style={styles.text}>{item.disclaimer}</Text>
-        </>
+        </View>
       );
     } else {
       return (
@@ -32,16 +50,72 @@ export default function FAQScreen() {
     }
   };
 
+  const handleItemPress = (index: number) => {
+    flatListRef.current.scrollToIndex({
+      animated: true,
+      index,
+      viewOffset: 60,
+    });
+  };
+
+  const Item = ({ item, onPress }: { item: any; onPress: () => void }) => {
+    if (item.id) {
+      return (
+        <TouchableOpacity onPress={onPress}>
+          <Text style={styles.itemsCategory}>
+            {item.header || item.subTitle}
+          </Text>
+        </TouchableOpacity>
+      );
+    } else {
+      return null;
+    }
+  };
+
+  const renderNavItem = ({ item, index }: { item: any; index: number }) => {
+    return <Item item={item} onPress={() => handleItemPress(index)} />;
+  };
+
+  type FaqFlatListProps = {
+    setMounted: (mounted: boolean) => void;
+    mounted: boolean;
+  };
+
+  function FaqFlatList({ setMounted, mounted }: FaqFlatListProps) {
+    useEffect(() => {
+      console.log("mounted", mounted);
+      setMounted(true);
+    }, []);
+
+    return (
+      <View style={styles.subContainer}>
+        <FlatList
+          ref={flatListRef}
+          initialNumToRender={DATA.length}
+          data={DATA}
+          renderItem={renderItem}
+          keyExtractor={(item, index) => index.toString()}
+        />
+      </View>
+    );
+  }
+
   return (
     <CustomSafeAreaView backgroundColor={"#fad096"}>
+      {!mounted && <View style={styles.loadingContainer}>
+          <Text style={styles.title}>Loading...</Text>
+        </View>}
+      <View style={styles.categories}>
+        <FlatList
+          data={DATA}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          renderItem={renderNavItem}
+          keyExtractor={(item, index) => index.toString()}
+        />
+      </View>
       <View style={styles.container}>
-        <View style={styles.subContainer}>
-          <FlatList
-            data={DATA}
-            renderItem={renderItem}
-            keyExtractor={(item, index) => index.toString()}
-          />
-        </View>
+        <FaqFlatList setMounted={setMounted} mounted={mounted} />
       </View>
       <Image source={image} style={styles.image} />
     </CustomSafeAreaView>
@@ -54,6 +128,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#fad096",
     marginTop: -(currentHeight as number),
+  },
+  loadingContainer: {
+    height: windowHeight,
+    width: windowWidth,
+    position: "absolute",
+    backgroundColor: "black",
+    top: 0,
+    zIndex: 10,
   },
   subContainer: {
     flex: 1,
@@ -85,7 +167,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "black",
     padding: 10,
-    margin: 10,
+    marginBottom: 10,
+    marginHorizontal: 10,
     borderRadius: 10,
   },
   question: {
@@ -104,7 +187,12 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 10,
   },
-  spacer: {
+  spacerTop: {
+    height: 60,
+    width: "100%",
+    backgroundColor: "#d3aa72",
+  },
+  spacerBottom: {
     height: 150,
     width: "100%",
     backgroundColor: "#d3aa72",
@@ -128,7 +216,6 @@ const styles = StyleSheet.create({
     textShadowColor: "rgba(0, 0, 0, 1)",
     textShadowOffset: { width: -1, height: 1 },
     textShadowRadius: 10,
-    marginTop: 10,
     marginHorizontal: 10,
     textDecorationLine: "underline",
   },
@@ -138,5 +225,37 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "black",
     marginHorizontal: 10,
+  },
+  categories: {
+    backgroundColor: "#fad096",
+    width: "100%",
+    height: 53,
+    top: 0,
+    position: "absolute",
+    zIndex: 2,
+    paddingHorizontal: 10,
+    borderColor: "black",
+    borderBottomWidth: 3,
+  },
+  itemsCategory: {
+    padding: 10,
+    border: 1,
+    borderRadius: 25,
+    marginRight: 10,
+    marginTop: 3,
+    color: "white",
+    fontSize: 15,
+    fontFamily: "Quasimodo",
+    backgroundColor: "black",
+  },
+  dividers: {
+    backgroundColor: "transparent",
+    marginBottom: 10,
+  },
+  button: {
+    backgroundColor: "black",
+    padding: 10,
+    position: "absolute",
+    bottom: 0,
   },
 });

@@ -1,5 +1,9 @@
 const DATA = [
   {
+    spacerTop: true,
+  },
+  {
+    id: 1,
     header: "FAQ",
   },
   {
@@ -41,6 +45,7 @@ const DATA = [
       "If they were truly simultaneous and you can't agree on anything else, each player who wanted to do something should roll the die; high roll decides what order the cards happen. If that makes later cards moot, well, that's the way the game goes. (But: abilities that require discards don't happen until the discards hit the table. This is a good reason not to announce your plays until you are ready to make them!)",
   },
   {
+    id: 2,
     subTitle: "Curses",
     disclaimer:
       "Reminder: Everything here also applies to Traps and Disasters.",
@@ -71,6 +76,7 @@ const DATA = [
     answer: `Not unless the Curse itself says so. Sucks to be cursed, but, well, you knew that . . .`,
   },
   {
+    id: 3,
     subTitle: "Cards and items",
   },
   {
@@ -185,6 +191,7 @@ const DATA = [
     answer: `You can only play a "Loaded Die" on your own roll, not on someone else's roll. You can only play a "Reloaded Die" on someone else's roll, not your own. Your friends are right; to change your roll back, you would have to use a second "Loaded Die" card.`,
   },
   {
+    id: 4,
     subTitle: `Races, Classes, etc.`,
     disclaimer: `Reminder: Class* and Super Munchkin* refer to any Class-like or SM-like card.`,
   },
@@ -218,6 +225,7 @@ const DATA = [
     answer: `No. The only sort of cards that can be played to the table but not used are Items.`,
   },
   {
+    id: 5,
     subTitle: `Combat`,
   },
   {
@@ -309,6 +317,7 @@ const DATA = [
     answer: `You die when you get Bad Stuff that says you're dead. (A very few other cards can cause Death as well.) If you still need to Run Away from other monsters, you are excused from their Bad Stuff, because you're dead. While you are dead, you cannot receive cards for any reason, and you cannot level up or win the game. You STAY dead only until the next person's turn starts. Your new character appears at that point and may join normally in the combat, though you will get no new cards until someone gives you Charity, you get cards as payment for helping in a combat, or your next turn starts.`,
   },
   {
+    id: 6,
     subTitle: `Cheat!`,
   },
   {
@@ -332,6 +341,7 @@ const DATA = [
     answer: `If the curse has added a negative effect to the item, a Cheat! card will not remove that effect.`,
   },
   {
+    id: 7,
     subTitle: "Miscellaneous Questions"
   },
   {
@@ -375,6 +385,7 @@ const DATA = [
     answer: `If it doesn't specify a particular die or tell you that you can roll any die you want, roll the six-sided die that comes with the game (or any other standard six-sided die, if you have several of them within reach).`,
   },
   {
+    id: 8,
     subTitle: "Munchkin",
   },
   {
@@ -538,7 +549,7 @@ const DATA = [
     answer: `It's basically another Cheat! card that lets you swap out the attached Item. But it's vulnerable to the Kill the Hireling Go Up a Level card, and anything that makes you lose the Hireling takes the attached Item with it.`,
   },
   {
-    spacer: true,
+    spacerBottom: true,
   },
 ];
 
