@@ -549,6 +549,68 @@ const DATA = [
     answer: `It's basically another Cheat! card that lets you swap out the attached Item. But it's vulnerable to the Kill the Hireling Go Up a Level card, and anything that makes you lose the Hireling takes the attached Item with it.`,
   },
   {
+    id: 9,
+    subTitle: `Unnatural Axe`,
+  },
+  {
+    question: `Can an Orc use his power to remove a curse retroactively? What if he has a Chicken on his Head when he becomes an Orc - can he break the curse at that point?`,
+    answer: `No. If an Orc does not use his power at the moment he is hit with the Curse, it takes full effect, and he can't use his Orc ability to remove it later.`,
+  },
+  {
+    question: `Why doesn't an Orc get some kind of bonus for dealing with the 3,872 Orcs monster card?`,
+    answer: `Rather than put a rule on a Race card that refers to a single monster card or rewrite a monster card to refer to a Race that isn't even in the same set, we decided that the monster orcs are just as hostile to a munchkin Orc as they are to any other munchkin.`,
+  },
+  {
+    question: `What does "every other player" mean on the Generosity curse?`,
+    answer: `It means every player who is not the victim. The intent is for the victim to give all of his stuff to all of the other players.`,
+  },
+  {
+    question: `The Lust Monster says ". . . you must flee" if you cannot get help from a member of the opposite sex. Does this mean I cannot use cards on it like Out to Lunch?`,
+    answer: `Even though it says you must Run Away, it does not say you have to do so immediately. So while you cannot fight the monster, you can use other cards on it, and if you can remove the monster from the fight entirely, the restriction is also removed.`,
+  },
+  {
+    question: `If I'm using the Sword of Slaying Everything But Squid and encounter Squidzilla, can I use an illusion to switch out Squidzilla?`,
+    answer: `No. As soon as Squidzilla appears, combat ends and you must try to Run Away immediately. (This is not 100% clear on the card, but it is the intent!)`,
+  },
+  {
+    question: `Can you explain the Siege Engine to me?`,
+    answer: `The Siege Engine is a 2-Handed Big item that doesn't count against your Big items, and you can choose whether to use it at the start of a combat, gaining a +4 bonus but accepting a -1 Run Away penalty.`,
+  },
+  {
+    question: `Can I play Annihilation to cancel a monster I just drew when I kicked open the door? If so, what happens?`,
+    answer: `Put the monster in the box and forget about it. However, because this was not a card played by an opponent, you do not get to cancel the monster or Kick Open another Door. And because the monster was in play, however briefly, you were in combat for that short time and therefore you cannot Look For Trouble or Loot The Room.`,
+  },
+  {
+    question: `I just killed a monster to reach Level 10. My opponent played Trojan Horse and the Plutonium Dragon and said I couldn't level up (and therefore win the game) until I killed the Dragon. I say that I killed my monster, and even if I didn't get the Treasure, I win because I reached Level 10. Who's right?`,
+    answer: `Congratulations on your victory! Trojan Horse cancels the Treasure but not the levels from one combat and immediately starts a new one. If the result of the first combat brought you to Level 10, the game is over and Trojan Horse can't be played.`,
+  },
+  {
+    question: `My opponent added a Wandering Monster. What happens if I Annihilate the monster? What about the Wandering Monster card itself?`,
+    answer: `In both cases, the card you Annihilate goes into the box and is forgotten, and the other card goes back into your opponent's hand.`,
+  },
+  {
+    question: `I played Curse! Cursed Thingy on an Item and we aren't sure how it works. Can I unequip the Item? What special abilities (e.g., fire/flame, cannot be lost to Bad Stuff, can be used with other equipment of the same type, gives an extra hand) are affected?`,
+    answer: `You cannot unequip the Item; it takes up a useful Item slot until you lift the Curse or contrive to get rid of it. Here are some specific examples of effects that Cursed Thingy can have (this is not a comprehensive list):
+
+  - The cursed Item loses any combat bonus it might possess.
+
+  - If it has some other bonus (a Run Away bonus, for instance), it loses that as well.
+
+  - If it is a fire/flame Item, it does not count as one.
+
+  - It cannot be lost to Bad Stuff, but that's a function of Cursed Thingy rather than the Item.
+
+  - It can be lost to Curses, even if the Item says it can't.
+
+  - If the Item itself says it can be used with other equipment of the same type, then you have to unequip the other Items of that type (for instance, a Cursed Thingy Raincoat cannot be worn over other Armor), but if it's the other Item that gives that ability, that's fine (a Raincoat can be worn over some other Cursed Thingy Armor).
+    
+  - A Cursed Thingy that gives you an extra Hand loses that ability.`,
+  },
+  {
+    question: `Does Curse! Tiny Hands prevent me from carrying an Item that requires 2 Hands, or just from equipping it?`,
+    answer: `It prevents you from carrying it, just like the card says. (It also prevents you from equipping it, of course, unless you Cheat!)`,
+  },
+  {
     spacerBottom: true,
   },
 ];

@@ -83,7 +83,6 @@ export default function FAQScreen() {
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
-      console.log("mounted", mounted);
       setTimeout(() =>  setMounted(true), 1000);
     }, []);
 

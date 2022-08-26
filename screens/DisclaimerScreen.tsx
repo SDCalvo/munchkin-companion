@@ -10,7 +10,6 @@ export default function DisclaimerScreen() {
 
   const onPress = async () => {
     const url = 'https://levelcounter.sjgames.com';
-    console.log(await Linking.canOpenURL(url));
     if (await Linking.canOpenURL(url)) {
       await Linking.openURL(url);
     } else {
@@ -26,7 +25,7 @@ export default function DisclaimerScreen() {
           I DO NOT OWN MUNCHKIN, nor any of the images shown in this app.
         </Text>
         <Text style={styles.text}>
-          Munchkin is written by Steve Jackson and illustrated by John Kovalic. All rights belong to them.
+          Munchkin is designed by Steve Jackson and illustrated by John Kovalic. All rights belong to them.
         </Text>
         <Text style={styles.text}>
           Munchkin is a trademark of Steve Jackson Games.
@@ -41,7 +40,7 @@ export default function DisclaimerScreen() {
           I hope anyone who uses this app is happy with it and can appreciate how much effort went into making it.
         </Text>
         <Text style={styles.text}>
-          If you have any questions, comments, or concerns, please contact me at santiago.d.calvo@gmail.com.
+          If you have any questions, comments, or concerns, please contact me at santiago.d.calvo@gmail.com or in linkedin @santiago-d-calvo.
         </Text>
         <Text style={styles.text}>
           Also don't forget to check out the OFFICIAL Munchkin Level Counter app!

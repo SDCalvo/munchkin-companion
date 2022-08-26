@@ -9,6 +9,7 @@ import CustomSafeAreaView, {
   currentHeight,
 } from "../components/CustomSafeAreaView";
 import { useState } from "react";
+import Animated, {useSharedValue, useAnimatedStyle, withSpring, withRepeat, withTiming, withSequence, withDecay} from "react-native-reanimated";
 
 //@ts-ignore
 import Dice1 from "../assets/images/dice1.png";
@@ -31,17 +32,46 @@ export default function DiceScreen() {
   const [uri, setUri] = useState(Dice1);
   const [title, setTitle] = useState("will you escape?");
   const [color , setColor] = useState("#fff");
+  const [escaped, setEscaped] = useState<null | boolean>(null);
+  const offset = useSharedValue(0);
+  const xMove = useSharedValue(0);
+  const scaleShared = useSharedValue(1);
+  const rotationAnim = useAnimatedStyle(() => ({
+    transform: [{rotateZ: withSpring(`${offset.value}deg`, {damping: 15, mass: 0.5})}],
+  }));
+  const wobbleAnim = useAnimatedStyle(() => ({
+    transform: [{translateX: withSpring(xMove.value, {damping: 15, mass: 0.5})}],
+  }));
+  const bounceAnim = useAnimatedStyle(() => ({
+    transform: [{scale: withSpring(scaleShared.value, {damping: 15, mass: 0.5})}],
+  }));
 
   const buttonTapped = () => {
     const randomNumber = Math.floor(Math.random() * 6) + 1;
     setUri(imageArray[randomNumber - 1]);
     if (randomNumber === 5 || randomNumber === 6) {
       setTitle("you have escaped!");
+      setEscaped(true);
       setColor("#3aeb23");
+      scaleShared.value = withSequence(
+        withTiming(1.2, {duration: 250}),
+        withTiming(1, {duration: 250}),
+        withTiming(1.2, {duration: 150}),
+        withTiming(1, {duration: 150}),
+      );
     } else {
       setTitle("you got caught!");
+      setEscaped(false);
       setColor("#ff0505");
+      xMove.value = withSequence(
+        withTiming(50, {duration: 250}),
+        withTiming(-50, {duration: 250}),
+        withTiming(25, {duration: 150}),
+        withTiming(-25, {duration: 150}),
+        withTiming(0, {duration: 50}), 
+      );
     }
+    offset.value = offset.value === 360 ? 0 : 360;
   };
 
   return (
@@ -52,9 +82,12 @@ export default function DiceScreen() {
           style={styles.bigImage}
           resizeMode="cover"
         >
-          <Text style={[styles.title, {color}]}>{title}</Text>
+          <Animated.View style={[escaped? bounceAnim : wobbleAnim]}>
+            <Text style={[styles.title, {color}]}>{title}</Text>
+          </Animated.View>
           <TouchableOpacity style={styles.touchable} onPress={buttonTapped}>
-            <Image source={uri} style={styles.image} />
+            <Animated.Image 
+            source={uri} style={[styles.image, rotationAnim]} />
           </TouchableOpacity>
           <Text style={styles.explanationText}>Tap to roll the dice</Text>
         </ImageBackground>
