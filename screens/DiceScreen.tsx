@@ -9,7 +9,7 @@ import CustomSafeAreaView, {
   currentHeight,
 } from "../components/CustomSafeAreaView";
 import { useState } from "react";
-import Animated, {useSharedValue, useAnimatedStyle, withSpring, withRepeat, withTiming, withSequence, withDecay} from "react-native-reanimated";
+import Animated, {useSharedValue, useAnimatedStyle, withSpring, withTiming, withSequence} from "react-native-reanimated";
 
 //@ts-ignore
 import Dice1 from "../assets/images/dice1.png";

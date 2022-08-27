@@ -8,6 +8,7 @@ import {
   TextInput,
 } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
+import Animated, {useSharedValue, useAnimatedStyle, withSpring, withTiming, withSequence} from "react-native-reanimated";
 
 type GameTrackerScreenProps = {
   color: string;
@@ -46,6 +47,10 @@ export default function GameTracker({ color, image }: GameTrackerScreenProps) {
     total: 1,
     color: colorsArray[0],
   });
+  const scaleValue = useSharedValue(1);
+  const bounceAnim = useAnimatedStyle(() => ({
+    transform: [{scale: withSpring(scaleValue.value, {damping: 15, mass: 0.5})}],
+  }));
 
   useEffect(() => {
     const total = gameState.level + gameState.mod;
@@ -94,6 +99,12 @@ export default function GameTracker({ color, image }: GameTrackerScreenProps) {
                 [position]:
                   position === "mod" ? value : Math.min(value, 10),
               })
+              if (position === "level") {
+                scaleValue.value = withSequence(
+                  withTiming(1.2, {duration: 100}),
+                  withTiming(1, {duration: 100}),
+                );
+              }
             }}
           >
             <FontAwesome name="plus" size={20} />
@@ -155,7 +166,7 @@ export default function GameTracker({ color, image }: GameTrackerScreenProps) {
   return (
     <View style={[styles.container, { backgroundColor: color }]}>
       <View style={styles.imageSubContainer}>
-        <Image source={image} style={styles.image} />
+        <Animated.Image source={image} style={[styles.image, bounceAnim]} />
         <TouchableOpacity
           style={[styles.button, {paddingHorizontal: 0}]}
           onPress={() =>
