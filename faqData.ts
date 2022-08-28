@@ -611,6 +611,94 @@ const DATA = [
     answer: `It prevents you from carrying it, just like the card says. (It also prevents you from equipping it, of course, unless you Cheat!)`,
   },
   {
+    id: 10,
+    subTitle: `Clerical Errors`,
+  },
+  {
+    question: `How does the Casting Couch work?`,
+    answer: `Casting Couch gives you the option to have all the benefits and penalties to being a Wizard along with any other Class(es) you might be. It is, in effect, an optional extra Class card. If you decide to use it, you may use Wizard-only Items in combat, you may use the Wizard's flight spell and charm spell, you get any bonuses/penalties against Monsters that are sensitive to Wizards. No matter what, you must decide whether you are using the Casting Couch at the start of combat (i.e., right after you Open A Door and find a monster, or when you Look For Trouble). If you do choose to use it, you are -1 to Run Away.`,
+  },
+  {
+    question: `What happens if I'm wearing the Fake Beard and the Fake Ears?`,
+    answer: `Monsters will react to you as if you are a half-Elf/half-Dwarf.`,
+  },
+  {
+    question: `How does the Stab-A-Matic work?`,
+    answer: `The Stab-A-Matic allows a non-Thief to backstab like a Thief during combat. I.e., he may discard a card to give a player a -2 penalty during combat, once per combatant. A Thief using the Stab-A-Matic gets a "bonus" to his backstabbing efforts, so each is good for a -3 penalty instead of the normal -2.`,
+  },
+  {
+    question: `Convenient Handles lets me turn a Big item into a small item. So could a Thief put convenient handles on someone else's Big item, and then try to steal it?`,
+    answer: `No. You can't play enhancers on other people's Items unless the card specifically says so.`,
+  },
+  {
+    id: 11,
+    subTitle: `The Need for Steed`,
+  },
+  {
+    question: `If I have two Steeds and Trick Riding Boots, what happens if I lose my footgear? Do I immediately discard the second Steed? Is it killed? And if so, if it was the Tiger Steed, would it come back to my hand?`,
+    answer: `You'd have to lose a Steed because you're only allowed one. This would not be the kind of event that allows your Tiger Steed to be returned to your hand.`,
+  },
+  {
+    question: `Is there anything special I have to do for Steed Enhancers?`,
+    answer: `Nope. Steed Enhancers work and are played just like Item Enhancers, except they can only be played on Steeds.`,
+  },
+  {
+    question: `If I have a Steed that breathes fire, does that count as having a fire/flame attack?`,
+    answer: `Yes, it does.`,
+  },
+  {
+    question: `Can I fight a Steed from my hand instead of Looking For Trouble?`,
+    answer: `No. A Steed can only be fought when you Kick Open The Door and find a Steed.`,
+  },
+  {
+    question: `Can I discard my Steed to automatically Run Away like I can with a Hireling?`,
+    answer: `Not unless the card itself says you can.`,
+  },
+  {
+    question: `If I decide not to use a Steed, can I unequip it by turning the card sideways?`,
+    answer: `Steeds cannot be unequipped at all and certainly not to play another one. If you can't use your Steed for some reason, you must get rid of it as an extra Big item. (If, somehow, you find yourself with a Steed that you can't use but can't get rid of, it does count against your Big item total; you only get to ignore a Steed's Bigness when you're actually riding it.)`,
+  },
+  {
+    question: `Can I play Duck of Earl if I am Level 1 and can't lose a level? What if I'm Level 9 and can't gain a level unless I kill a monster? And what if I'm using a special trick die so I'm guaranteed to roll a 6?`,
+    answer: `You can still play the card in all these circumstances, but you don't lose/gain the level. Normally, using a trick die would be very much against the spirit of the rules, but the text on this card leaves that door wide open. Good . . . luck?`,
+  },
+  {
+    id: 12,
+    subTitle: `De-Ranged`,
+  },
+  {
+    question: `Do I get Treasures or levels when I tame a monster?`,
+    answer: `No, you munchkin. You didn't kill it.`,
+  },
+  {
+    question: `If I'm fighting multiple monsters, when does the taming happen?`,
+    answer: `It happens as soon as you discard to make it happen; your new Steed will help you against the other monsters.`,
+  },
+  {
+    question: `If I tame a monster, what happens to my old Steed? What if I somehow have multiple Steeds?`,
+    answer: `Discard the old one(s). The tamed Steed replaces all Steeds you might have had previously.`,
+  },
+  {
+    question: `Does my tamed Steed count as a Big item?`,
+    answer: `Because it does not have a Gold Piece value, it is not an Item and is not affected by any cards that specifically target Items. It follows all other rules for Steeds, however.`,
+  },
+  {
+    question: `If I discard a tamed monster, what happens to the card?`,
+    answer: `It goes to the Door discards. It's not a Steed any more. It's a monster again.`,
+  },
+  {
+    question: `Do I keep my tamed Steed if I quit being a Ranger?`,
+    answer: `Yes, until you play another Steed.`,
+  },
+  {
+    question: `If potions, enhancers, etc., were played on a monster before I tamed it, what happens?`,
+    answer: `Taming a Steed is similar to the Wizard's Charm Spell, so one-shot Items (if it was the only monster in the fight), monster enhancers, and so on get discarded. (Rulings on the forums have been inconsistent, but this is the official answer.)`,
+  },
+  {
+    question: `If I am using Horse Shoes as a Steed and it has a Steed Enhancer on it, what happens if I declare that Horse Shoes is now Footgear?`,
+    answer: `The Steed Enhancer remains on Horse Shoes, but they do not add to its bonus as long as you are using them as Footgear.`,
+  },
+  {
     spacerBottom: true,
   },
 ];
