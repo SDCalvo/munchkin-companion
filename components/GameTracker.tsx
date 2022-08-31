@@ -4,15 +4,37 @@ import {
   Text,
   View,
   TouchableOpacity,
+  TouchableHighlight,
   Image,
   TextInput,
 } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
-import Animated, {useSharedValue, useAnimatedStyle, withSpring, withTiming, withSequence} from "react-native-reanimated";
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withSpring,
+  withTiming,
+  withSequence,
+} from "react-native-reanimated";
+
+const maleImages = [
+  require("../assets/images/munchkin-m1.png"),
+  require("../assets/images/munchkin-m2.png"),
+  require("../assets/images/munchkin-m3.png"),
+  require("../assets/images/munchkin-m4.png"),
+  require("../assets/images/munchkin-m5.png"),
+];
+
+const femaleImages = [
+  require("../assets/images/munchkin-f1.png"),
+  require("../assets/images/munchkin-f2.png"),
+  require("../assets/images/munchkin-f3.png"),
+  require("../assets/images/munchkin-f4.png"),
+  require("../assets/images/munchkin-f5.png"),
+];
 
 type GameTrackerScreenProps = {
   color: string;
-  image: any;
 };
 
 type GameState = {
@@ -25,17 +47,16 @@ type GameState = {
   gender: string;
   total: number;
   color: string;
+  image: string;
 };
 
-const colorsArray = [
-  '#fff600',
-  '#ffc302',
-  '#ff8f00',
-  '#ff5b00',
-  '#ff0505',
-];
+const colorsArray = ["#fff600", "#ffc302", "#ff8f00", "#ff5b00", "#ff0505"];
 
-export default function GameTracker({ color, image }: GameTrackerScreenProps) {
+export default function GameTracker({ color }: GameTrackerScreenProps) {
+  function getRandomInt(max: number): number {
+    return Math.floor(Math.random() * max);
+  }
+  const initImageIndex = getRandomInt(maleImages.length);
   const [gameState, setGameState] = useState<GameState>({
     name: {
       value: "...",
@@ -46,15 +67,19 @@ export default function GameTracker({ color, image }: GameTrackerScreenProps) {
     gender: "male",
     total: 1,
     color: colorsArray[0],
+    image: maleImages[initImageIndex],
   });
+  const [lastImageIndex, setLastImageIndex] = useState(initImageIndex);
   const scaleValue = useSharedValue(1);
   const bounceAnim = useAnimatedStyle(() => ({
-    transform: [{scale: withSpring(scaleValue.value, {damping: 15, mass: 0.5})}],
+    transform: [
+      { scale: withSpring(scaleValue.value, { damping: 15, mass: 0.5 }) },
+    ],
   }));
 
   useEffect(() => {
     const total = gameState.level + gameState.mod;
-    const colorIndex = Math.max((Math.floor(gameState.level / 2) - 1), 0);
+    const colorIndex = Math.max(Math.floor(gameState.level / 2) - 1, 0);
     const color = colorsArray[colorIndex];
     setGameState({
       ...gameState,
@@ -66,7 +91,12 @@ export default function GameTracker({ color, image }: GameTrackerScreenProps) {
   function valueEditTsx(position: string) {
     return (
       <View style={styles.valueEditContainer}>
-        <Text style={[styles.text, { textDecorationLine: "underline", textAlign:"left" }]}>
+        <Text
+          style={[
+            styles.text,
+            { textDecorationLine: "underline", textAlign: "left" },
+          ]}
+        >
           {position}
         </Text>
         <View style={styles.valueEditSubContainer}>
@@ -83,26 +113,37 @@ export default function GameTracker({ color, image }: GameTrackerScreenProps) {
                 ...gameState,
                 [position as keyof GameState]: value,
               });
+              if (position === "level") {
+                scaleValue.value = withSequence(
+                  withTiming(0.8, { duration: 100 }),
+                  withTiming(1, { duration: 100 })
+                );
+              }
             }}
           >
             <FontAwesome name="minus" size={20} />
           </TouchableOpacity>
-          <Text style={[styles.value, {color: position === "level" ? gameState.color : 'white'}]}>
+          <Text
+            style={[
+              styles.value,
+              { color: position === "level" ? gameState.color : "white" },
+            ]}
+          >
             {gameState[position as keyof GameState]}
           </Text>
           <TouchableOpacity
             style={styles.button}
-            onPress={() =>{
-              const value = (gameState[position as keyof GameState] as number) + 1;
+            onPress={() => {
+              const value =
+                (gameState[position as keyof GameState] as number) + 1;
               setGameState({
                 ...gameState,
-                [position]:
-                  position === "mod" ? value : Math.min(value, 10),
-              })
+                [position]: position === "mod" ? value : Math.min(value, 10),
+              });
               if (position === "level") {
                 scaleValue.value = withSequence(
-                  withTiming(1.2, {duration: 100}),
-                  withTiming(1, {duration: 100}),
+                  withTiming(1.2, { duration: 100 }),
+                  withTiming(1, { duration: 100 })
                 );
               }
             }}
@@ -166,35 +207,69 @@ export default function GameTracker({ color, image }: GameTrackerScreenProps) {
   return (
     <View style={[styles.container, { backgroundColor: color }]}>
       <View style={styles.imageSubContainer}>
-        <Animated.Image source={image} style={[styles.image, bounceAnim]} />
+        <TouchableHighlight
+          onPress={() => {
+            let newIndex = lastImageIndex + 1;
+            if (newIndex >= maleImages.length) {
+              newIndex = 0;
+            }
+            setLastImageIndex(newIndex);
+            setGameState({
+              ...gameState,
+              image:
+                gameState.gender === "male"
+                  ? maleImages[newIndex]
+                  : femaleImages[newIndex]
+            });
+          }}
+        >
+          <Animated.Image
+            source={gameState.image}
+            style={[styles.image, bounceAnim]}
+          />
+        </TouchableHighlight>
         <TouchableOpacity
-          style={[styles.button, {paddingHorizontal: 0}]}
+          style={[styles.button, { paddingHorizontal: 0 }]}
           onPress={() =>
             setGameState({
               ...gameState,
               gender: "male",
+              image: maleImages[getRandomInt(maleImages.length)],
             })
           }
         >
           <FontAwesome
             name="male"
             size={30}
-            style={[{ opacity: gameState.gender === "male" ? 1 : 0.5, paddingHorizontal: 15, }, styles.icon]}
+            style={[
+              {
+                opacity: gameState.gender === "male" ? 1 : 0.5,
+                paddingHorizontal: 15,
+              },
+              styles.icon,
+            ]}
           />
         </TouchableOpacity>
         <TouchableOpacity
-          style={[styles.button, {paddingHorizontal: 0}]}
+          style={[styles.button, { paddingHorizontal: 0 }]}
           onPress={() =>
             setGameState({
               ...gameState,
               gender: "female",
+              image: femaleImages[getRandomInt(femaleImages.length)],
             })
           }
         >
           <FontAwesome
             name="female"
             size={30}
-            style={[{ opacity: gameState.gender === "female" ? 1 : 0.5, paddingHorizontal: 13, }, styles.icon]}
+            style={[
+              {
+                opacity: gameState.gender === "female" ? 1 : 0.5,
+                paddingHorizontal: 13,
+              },
+              styles.icon,
+            ]}
           />
         </TouchableOpacity>
       </View>
@@ -203,7 +278,12 @@ export default function GameTracker({ color, image }: GameTrackerScreenProps) {
       <View style={styles.subContainer}>{valueEditTsx("mod")}</View>
       <View style={styles.subContainer}>
         <View style={styles.totalContainer}>
-          <Text style={[styles.text, { textDecorationLine: "underline", textAlign:"left" }]}>
+          <Text
+            style={[
+              styles.text,
+              { textDecorationLine: "underline", textAlign: "left" },
+            ]}
+          >
             total
           </Text>
           <Text
@@ -251,7 +331,7 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
     borderRadius: 50,
     padding: 5,
-    fontFamily: 'Quasimodo',
+    fontFamily: "Quasimodo",
   },
   subContainer: {
     alignItems: "center",
@@ -262,8 +342,8 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     textAlign: "center",
-    textShadowColor: 'rgba(1, 1, 1, 1)',
-    textShadowOffset: {width: -1, height: 1},
+    textShadowColor: "rgba(1, 1, 1, 1)",
+    textShadowOffset: { width: -1, height: 1 },
     textShadowRadius: 5,
     color: "white",
   },
@@ -284,8 +364,8 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: "center",
     fontFamily: "Quasimodo",
-    textShadowColor: 'rgba(1, 1, 1, 1)',
-    textShadowOffset: {width: -1, height: 1},
+    textShadowColor: "rgba(1, 1, 1, 1)",
+    textShadowOffset: { width: -1, height: 1 },
     textShadowRadius: 5,
     color: "white",
   },
@@ -303,8 +383,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
     width: "30%",
     fontFamily: "Quasimodo",
-    textShadowColor: 'rgba(1, 1, 1, 1)',
-    textShadowOffset: {width: -1, height: 1},
+    textShadowColor: "rgba(1, 1, 1, 1)",
+    textShadowOffset: { width: -1, height: 1 },
     textShadowRadius: 5,
     color: "white",
   },

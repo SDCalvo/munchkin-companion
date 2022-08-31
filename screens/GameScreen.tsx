@@ -9,16 +9,16 @@ export default function GameScreen({ navigation }: RootTabScreenProps<"Game">) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.subContainer}>
-        <GameTracker color={"#fad096"} image={require("../assets/images/munchkin1.png")} />
-        <GameTracker color={"#d3aa72"} image={require("../assets/images/munchkin2.png")} />
+        <GameTracker color={"#fad096"} />
+        <GameTracker color={"#d3aa72"} />
       </View>
       <View style={styles.subContainer}>
-        <GameTracker color={"#d3aa72"} image={require("../assets/images/munchkin3.png")} />
-        <GameTracker color={"#fad096"} image={require("../assets/images/munchkin4.png")} />
+        <GameTracker color={"#d3aa72"} />
+        <GameTracker color={"#fad096"} />
       </View>
       <View style={styles.subContainer}>
-        <GameTracker color={"#fad096"} image={require("../assets/images/munchkin5.png")} />
-        <GameTracker color={"#d3aa72"} image={require("../assets/images/munchkin6.png")} />
+        <GameTracker color={"#fad096"} />
+        <GameTracker color={"#d3aa72"} />
       </View>
     </SafeAreaView>
   );
