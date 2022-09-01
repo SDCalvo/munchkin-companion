@@ -113,7 +113,7 @@ export default function GameTracker({ color }: GameTrackerScreenProps) {
                 ...gameState,
                 [position as keyof GameState]: value,
               });
-              if (position === "level") {
+              if (position === "level" && value > 1) {
                 scaleValue.value = withSequence(
                   withTiming(0.8, { duration: 100 }),
                   withTiming(1, { duration: 100 })
@@ -140,7 +140,7 @@ export default function GameTracker({ color }: GameTrackerScreenProps) {
                 ...gameState,
                 [position]: position === "mod" ? value : Math.min(value, 10),
               });
-              if (position === "level") {
+              if (position === "level" && value < 10) {
                 scaleValue.value = withSequence(
                   withTiming(1.2, { duration: 100 }),
                   withTiming(1, { duration: 100 })
