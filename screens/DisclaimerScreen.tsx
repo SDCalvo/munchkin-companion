@@ -9,7 +9,7 @@ import { Text, View } from '../components/Themed';
 export default function DisclaimerScreen() {
 
   const onPress = async () => {
-    const url = 'https://levelcounter.sjgames.com';
+    const url = 'https://play.google.com/store/apps/details?id=com.sjgames.levelcounter';
     if (await Linking.canOpenURL(url)) {
       await Linking.openURL(url);
     } else {
@@ -46,7 +46,7 @@ export default function DisclaimerScreen() {
           Also don't forget to check out the OFFICIAL Munchkin Level Counter app!
         </Text>
         <Text style={styles.text}>
-          <Text style={styles.link} onPress={onPress}>levelcounter.sjgames.com</Text>
+          <Text style={styles.link} onPress={onPress}>Oficial app!</Text>
         </Text>
         <Image source={require('../assets/images/zombies.png')} style={styles.image} />
       </View>
